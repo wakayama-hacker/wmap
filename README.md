@@ -11,12 +11,6 @@ $ npm run build
 $ npm start
 ```
 
-### or install dependeny with Yarn
-
-```
-$ yarn
-```
-
 ## testing
 
 ```
