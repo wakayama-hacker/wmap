@@ -5,11 +5,11 @@ const test     = require('./test-stream')
 
 describe('gulp-csv2json', () => {
 
-  describe('single file input', () => {
+  describe('single CSV file input', () => {
 
     describe('single menu', () => {
 
-      const CSV  =
+      const CSV =
         'menu,title,lat,lng,content\n' +
         '串本,橋杭岩,12.345,123.45,これは橋杭岩です\n' +
         '串本,潮岬,23.456,132.1,これは潮岬です\n'
@@ -74,7 +74,7 @@ describe('gulp-csv2json', () => {
 
     describe('multiple menus', () => {
 
-      const CSV  =
+      const CSV =
         'menu,title,lat,lng,content\n' +
         '串本,橋杭岩,12.345,123.45,これは橋杭岩です\n' +
         '串本,潮岬,23.456,132.1,これは潮岬です\n' +
@@ -141,8 +141,8 @@ describe('gulp-csv2json', () => {
         ]
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.nth(3, file => {
-            expect(file.contents.toString()).to.equal(JSON.stringify(main))
+          .pipe(assert.nth(2, file => {
+            return expect(file.contents.toString()).to.equal(JSON.stringify(main))
           }))
           .pipe(assert.end(done))
       })
@@ -150,12 +150,12 @@ describe('gulp-csv2json', () => {
       it('should be named propery', done => {
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.nth(3, file => {
+          .pipe(assert.nth(2, file => {
             expect(file.path).to.equal(`${file.base}/白浜.json`)
           }))
           .pipe(assert.end(done))
       })
-
     })
   })
+
 })
