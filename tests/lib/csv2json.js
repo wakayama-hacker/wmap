@@ -30,6 +30,15 @@ describe('gulp-csv2json', () => {
           .pipe(assert.end(done))
       })
 
+      it('should be named propery', done => {
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.first(file => {
+            expect(file.path).to.equal(`${file.base}/menu.json`)
+          }))
+          .pipe(assert.end(done))
+      })
+
       it('should return converted json from csv, secondly', done => {
         const main = [
           {
@@ -49,6 +58,15 @@ describe('gulp-csv2json', () => {
           .pipe(csv2json())
           .pipe(assert.second(file => {
             expect(file.contents.toString()).to.equal(JSON.stringify(main))
+          }))
+          .pipe(assert.end(done))
+      })
+
+      it('should be named propery', done => {
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.second(file => {
+            expect(file.path).to.equal(`${file.base}/串本.json`)
           }))
           .pipe(assert.end(done))
       })
@@ -103,6 +121,15 @@ describe('gulp-csv2json', () => {
       })
 
 
+      it('should be named propery', done => {
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.second(file => {
+            expect(file.path).to.equal(`${file.base}/串本.json`)
+          }))
+          .pipe(assert.end(done))
+      })
+
       it('should return converted json from csv, thirdly in this case', done => {
         const main = [
           {
@@ -119,6 +146,16 @@ describe('gulp-csv2json', () => {
           }))
           .pipe(assert.end(done))
       })
+
+      it('should be named propery', done => {
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.nth(3, file => {
+            expect(file.path).to.equal(`${file.base}/白浜.json`)
+          }))
+          .pipe(assert.end(done))
+      })
+
     })
   })
 })
