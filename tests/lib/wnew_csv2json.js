@@ -1,4 +1,4 @@
-const csv2json = require('../../lib/csv2json')
+const csv2json = require('../../lib/wnew_csv2json')
 const assert   = require('stream-assert')
 const expect   = require('expect.js')
 const test     = require('./test-stream')
