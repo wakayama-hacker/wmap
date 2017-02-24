@@ -12,7 +12,10 @@ module.exports = function(config) {
       'node_modules/jquery/dist/jquery.min.js',
       'node_modules/expect.js/index.js',
       'tags/*.tag',
-      'tests/**/*.js'
+      'tests/**/*.js',
+    ],
+    exclude: [
+      'tests/lib/**/*.js'
     ],
     preprocessors: {
       'tags/*.tag': ['riot']
