@@ -78,7 +78,7 @@ describe('gulp-csv2json', () => {
         'menu,title,lat,lng,content\n' +
         '串本,橋杭岩,12.345,123.45,これは橋杭岩です\n' +
         '串本,潮岬,23.456,132.1,これは潮岬です\n' +
-        '白浜,円月島,76.54,32,1,これは円月島です'
+        '白浜,円月島,76.54,32.1,これは円月島です'
 
 
       it('should return 3 files', done => {
@@ -135,7 +135,7 @@ describe('gulp-csv2json', () => {
           {
             'title': '円月島',
             'lat': '76.54',
-            'lng': '32,1',
+            'lng': '32.1',
             'content': 'これは円月島です'
           }
         ]
@@ -157,5 +157,4 @@ describe('gulp-csv2json', () => {
       })
     })
   })
-
 })
