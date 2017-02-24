@@ -1,7 +1,4 @@
-/**
- * Mocha
- * @file
- */
+'use strict'
 
 const assert   = require('stream-assert')
 const expect   = require('expect.js')
