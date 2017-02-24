@@ -1,6 +1,10 @@
 const array = require('stream-array')
 const File  = require('vinyl')
 
+/**
+ * create File streams for test
+ * @return {Array} array stream
+ */
 module.exports = function () {
   const args = Array.prototype.slice.call(arguments)
 

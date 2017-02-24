@@ -1,7 +1,12 @@
-const csv2json = require('../../lib/wnew_csv2json')
+/**
+ * Mocha
+ * @file
+ */
+
 const assert   = require('stream-assert')
 const expect   = require('expect.js')
-const test     = require('./test-stream')
+const csv2json = require('../../lib/wnew_csv2json')
+const test     = require('./helper/test-stream')
 
 describe('gulp-csv2json', () => {
 
