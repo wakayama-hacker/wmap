@@ -6,7 +6,8 @@
   "scripts": {
     "start": "http-server -io",
     "build": "riot tags/ js/tags.js && gulp build",
-    "test": "eslint --ext .js,.tag . && npm run build && karma start"
+    "test": "eslint --ext .js,.tag . && mocha tests/lib && npm run build && karma start",
+    "test:unit": "mocha tests/lib"
   },
   "author": "",
   "license": "MIT",
