@@ -5,6 +5,23 @@ const expect   = require('expect.js')
 const csv2json = require('../../lib/wnew_csv2json')
 const test     = require('./helper/test-stream')
 
+/**
+ * An assertion Helper to check if a vinyl object has a certain filename
+ * @param  {Vinyl}   file [description]
+ * @param  {String}  name [description]
+ * @return {Expect}       [description]
+ */
+const hasName = (file, name) => expect(file.path).to.equal(`${file.base}/${name}`)
+
+/**
+* An assertion Helper to check if a vinyl object has a certain json string
+ * @param  {Vinyl}   file [description]
+ * @param  {Object}  json [description]
+ * @return {Expect}       [description]
+ */
+const isJSON = (file, json) => expect(file.contents.toString()).to.equal(JSON.stringify(json))
+
+
 describe('gulp-csv2json', () => {
 
   describe('single CSV file input', () => {
@@ -26,18 +43,14 @@ describe('gulp-csv2json', () => {
       it('should return menu array, firstly', done => {
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.first(file => {
-            expect(file.contents.toString()).to.equal(JSON.stringify(['串本']))
-          }))
+          .pipe(assert.first(file => isJSON(file, ['串本'])))
           .pipe(assert.end(done))
       })
 
       it('should be named propery', done => {
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.first(file => {
-            expect(file.path).to.equal(`${file.base}/menu.json`)
-          }))
+          .pipe(assert.first(file => hasName(file, 'menu.json')))
           .pipe(assert.end(done))
       })
 
@@ -58,18 +71,14 @@ describe('gulp-csv2json', () => {
         ]
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.second(file => {
-            expect(file.contents.toString()).to.equal(JSON.stringify(main))
-          }))
+          .pipe(assert.second(file => isJSON(file, main)))
           .pipe(assert.end(done))
       })
 
       it('should be named propery', done => {
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.second(file => {
-            expect(file.path).to.equal(`${file.base}/串本.json`)
-          }))
+          .pipe(assert.second(file => hasName(file, '串本.json')))
           .pipe(assert.end(done))
       })
     })
@@ -93,9 +102,7 @@ describe('gulp-csv2json', () => {
       it('should return menu array, firstly', done => {
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.first(file => {
-            expect(file.contents.toString()).to.equal(JSON.stringify(['串本','白浜']))
-          }))
+          .pipe(assert.first(file => isJSON(file, ['串本','白浜'])))
           .pipe(assert.end(done))
       })
 
@@ -116,9 +123,7 @@ describe('gulp-csv2json', () => {
         ]
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.second(file => {
-            expect(file.contents.toString()).to.equal(JSON.stringify(main))
-          }))
+          .pipe(assert.second(file => isJSON(file, main)))
           .pipe(assert.end(done))
       })
 
@@ -126,9 +131,7 @@ describe('gulp-csv2json', () => {
       it('should be named propery', done => {
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.second(file => {
-            expect(file.path).to.equal(`${file.base}/串本.json`)
-          }))
+          .pipe(assert.second(file => hasName(file, '串本.json')))
           .pipe(assert.end(done))
       })
 
@@ -143,20 +146,115 @@ describe('gulp-csv2json', () => {
         ]
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.nth(2, file => {
-            return expect(file.contents.toString()).to.equal(JSON.stringify(main))
-          }))
+          .pipe(assert.nth(2, file => isJSON(file, main)))
           .pipe(assert.end(done))
       })
 
       it('should be named propery', done => {
         test(CSV)
           .pipe(csv2json())
-          .pipe(assert.nth(2, file => {
-            expect(file.path).to.equal(`${file.base}/白浜.json`)
-          }))
+          .pipe(assert.nth(2, file => hasName(file, '白浜.json')))
           .pipe(assert.end(done))
       })
+    })
+
+    describe('invalid csv or exceptional cases', () => {
+
+      it('should return only empty menu file with empty csv', done => {
+
+        const CSV = ''
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.length(1))
+          .pipe(assert.first(file => isJSON(file, [])))
+          .pipe(assert.end(done))
+      })
+
+      it('should return only empty menu file without menu column', done => {
+
+        const CSV = 'a,b,c\n1,2,3'
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.length(1))
+          .pipe(assert.first(menuFile => isJSON(menuFile, [])))
+          .pipe(assert.end(done))
+      })
+
+      it('should be skipped without menu value', done => {
+
+        const CSV = 'menu,a,b\n,2,3\nvalue1,5,6' // evaluated as empty string
+        const expected = [{ a: '5', b: '6' }]
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.length(2))
+          .pipe(assert.first(menuFile => isJSON(menuFile, ['value1'])))
+          .pipe(assert.second(mainFile => hasName(mainFile, 'value1.json')))
+          .pipe(assert.second(mainFile => isJSON(mainFile, expected)))
+          .pipe(assert.end(done))
+      })
+
+      it('should ignore row with menu fileld with menu value', done => {
+
+        const CSV = 'menu,a,b\nmenu,2,3\nvalue1,5,6' // evaluated as empty string
+        const expected = [{ a: '5', b: '6' }]
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.length(2))
+          .pipe(assert.first(menuFile => isJSON(menuFile, ['value1'])))
+          .pipe(assert.second(mainFile => hasName(mainFile, 'value1.json')))
+          .pipe(assert.second(mainFile => isJSON(mainFile, expected)))
+          .pipe(assert.end(done))
+      })
+
+      it('should skip value shortage', done => {
+
+        const CSV =
+          'menu,a,b\n' +
+          'value1,2\n' +
+          'value2,5,6'
+        const expected2nd = [{ a: '2' }]
+        const expected3rd = [{ a: '5', b: '6' }]
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.length(3))
+          .pipe(assert.second(mainFile => isJSON(mainFile, expected2nd)))
+          .pipe(assert.nth(2, mainFile => isJSON(mainFile, expected3rd)))
+          .pipe(assert.end(done))
+      })
+
+      it('should skip exceptional column', done => {
+
+        const CSV =
+          'menu,a,b\n' +
+          'value1,2,3,4\n' +
+          'value2,5,6'
+        const expected2nd = [{ a: '2', b: '3' }] // should not contain '4' value
+        const expected3rd = [{ a: '5', b: '6' }]
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.length(3))
+          .pipe(assert.second(mainFile => isJSON(mainFile, expected2nd)))
+          .pipe(assert.nth(2, mainFile => isJSON(mainFile, expected3rd)))
+          .pipe(assert.end(done))
+      })
+
+      it('should be able to stringify values to be negatively evaluated', done => {
+
+        const CSV =
+          'menu,a,b\n' +
+          'value1,0,3\n' +
+          'value2,5,false'
+        const expected2nd = [{ a: '0', b: '3' }] // should not contain '4' value
+        const expected3rd = [{ a: '5', b: 'false' }]
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.length(3))
+          .pipe(assert.second(mainFile => isJSON(mainFile, expected2nd)))
+          .pipe(assert.nth(2, mainFile => isJSON(mainFile, expected3rd)))
+          .pipe(assert.end(done))
+      })
+
+
     })
   })
 
@@ -179,9 +277,7 @@ describe('gulp-csv2json', () => {
     it('should return menu array, firstly', done => {
       test(CSV1, CSV2)
         .pipe(csv2json())
-        .pipe(assert.first(file => {
-          expect(file.contents.toString()).to.equal(JSON.stringify(['串本','白浜']))
-        }))
+        .pipe(assert.first(file => isJSON(file, ['串本','白浜'])))
         .pipe(assert.end(done))
     })
 
@@ -202,19 +298,14 @@ describe('gulp-csv2json', () => {
       ]
       test(CSV1, CSV2)
         .pipe(csv2json())
-        .pipe(assert.second(file => {
-          expect(file.contents.toString()).to.equal(JSON.stringify(main))
-        }))
+        .pipe(assert.second(file => isJSON(file, main)))
         .pipe(assert.end(done))
     })
-
 
     it('should be named propery', done => {
       test(CSV1, CSV2)
         .pipe(csv2json())
-        .pipe(assert.second(file => {
-          expect(file.path).to.equal(`${file.base}/串本.json`)
-        }))
+        .pipe(assert.second(file => hasName(file, '串本.json')))
         .pipe(assert.end(done))
     })
 
@@ -229,18 +320,14 @@ describe('gulp-csv2json', () => {
       ]
       test(CSV1, CSV2)
         .pipe(csv2json())
-        .pipe(assert.nth(2, file => {
-          expect(file.contents.toString()).to.equal(JSON.stringify(main))
-        }))
+        .pipe(assert.nth(2, file => isJSON(file, main)))
         .pipe(assert.end(done))
     })
 
     it('should be named propery', done => {
       test(CSV1, CSV2)
         .pipe(csv2json())
-        .pipe(assert.nth(2, file => {
-          expect(file.path).to.equal(`${file.base}/白浜.json`)
-        }))
+        .pipe(assert.nth(2, file => hasName(file, '白浜.json')))
         .pipe(assert.end(done))
     })
   })
