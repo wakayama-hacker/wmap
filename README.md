@@ -28,9 +28,9 @@ const gulp = require('gulp')
 const csv2json = require('./lib/wnew_csv2json')
 
 gulp.task('default', () => {
-  gulp.src('./example/**/*.csv')
+  gulp.src('./data/**/*.csv')
     .pipe(csv2json())
-    .pipe(gulp.dest('./dest'))
+    .pipe(gulp.dest('./json'))
 })
 
 ```
