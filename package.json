@@ -31,6 +31,7 @@
     "riot": "^3.0.4",
     "stream-array": "^1.1.2",
     "stream-assert": "^2.0.3",
+    "through2": "^2.0.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
