@@ -289,76 +289,100 @@ describe('gulp-csv2json', () => {
 
   describe('several CSV files input', () => {
 
-    const CSV1 =
-      'menu,title,lat,lng,content\n' +
-      '串本,橋杭岩,12.345,123.45,これは橋杭岩です\n' +
-      '串本,潮岬,23.456,132.1,これは潮岬です'
-    const CSV2 =
-      'menu,title,lat,lng,content\n' +
-      '白浜,円月島,76.54,32.1,これは円月島です'
+    describe('not splitted', () => {
 
-    it('should return 3 files', done => {
-      test(CSV1, CSV2)
-        .pipe(csv2json())
-        .pipe(assert.length(3))
-        .pipe(assert.end(done))
+      const CSV1 =
+        'menu,title,lat,lng,content\n' +
+        '串本,橋杭岩,12.345,123.45,これは橋杭岩です\n' +
+        '串本,潮岬,23.456,132.1,これは潮岬です'
+      const CSV2 =
+        'menu,title,lat,lng,content\n' +
+        '白浜,円月島,76.54,32.1,これは円月島です'
+
+      it('should return 3 files', done => {
+        test(CSV1, CSV2)
+          .pipe(csv2json())
+          .pipe(assert.length(3))
+          .pipe(assert.end(done))
+      })
+
+      it('should return menu array, firstly', done => {
+        test(CSV1, CSV2)
+          .pipe(csv2json())
+          .pipe(assert.first(file => isJSON(file, ['串本','白浜'])))
+          .pipe(assert.end(done))
+      })
+
+      it('should return converted json from csv, secondly', done => {
+        const item = [
+          {
+            'title': '橋杭岩',
+            'lat': '12.345',
+            'lng': '123.45',
+            'content': 'これは橋杭岩です'
+          },
+          {
+            'title': '潮岬',
+            'lat': '23.456',
+            'lng': '132.1',
+            'content': 'これは潮岬です'
+          }
+        ]
+        test(CSV1, CSV2)
+          .pipe(csv2json())
+          .pipe(assert.second(file => isJSON(file, item)))
+          .pipe(assert.end(done))
+      })
+
+      it('should be named propery', done => {
+        test(CSV1, CSV2)
+          .pipe(csv2json())
+          .pipe(assert.second(file => hasName(file, '串本.json')))
+          .pipe(assert.end(done))
+      })
+
+      it('should return converted json from csv, thirdly in this case', done => {
+        const item = [
+          {
+            'title': '円月島',
+            'lat': '76.54',
+            'lng': '32.1',
+            'content': 'これは円月島です'
+          }
+        ]
+        test(CSV1, CSV2)
+          .pipe(csv2json())
+          .pipe(assert.nth(2, file => isJSON(file, item)))
+          .pipe(assert.end(done))
+      })
+
+      it('should be named propery', done => {
+        test(CSV1, CSV2)
+          .pipe(csv2json())
+          .pipe(assert.nth(2, file => hasName(file, '白浜.json')))
+          .pipe(assert.end(done))
+      })
     })
 
-    it('should return menu array, firstly', done => {
-      test(CSV1, CSV2)
-        .pipe(csv2json())
-        .pipe(assert.first(file => isJSON(file, ['串本','白浜'])))
-        .pipe(assert.end(done))
-    })
+    describe('splitted resource', () => {
 
-    it('should return converted json from csv, secondly', done => {
-      const item = [
-        {
-          'title': '橋杭岩',
-          'lat': '12.345',
-          'lng': '123.45',
-          'content': 'これは橋杭岩です'
-        },
-        {
-          'title': '潮岬',
-          'lat': '23.456',
-          'lng': '132.1',
-          'content': 'これは潮岬です'
-        }
-      ]
-      test(CSV1, CSV2)
-        .pipe(csv2json())
-        .pipe(assert.second(file => isJSON(file, item)))
-        .pipe(assert.end(done))
-    })
+      const CSV1 =
+        'menu,title,lat,lng,content\n' +
+        '串本,橋杭岩,12.345,123.45,これは橋杭岩です\n' +
+        '串本,潮岬,23.456,132.1,これは潮岬です\n' +
+        '公衆トイレ,abc,1,2,def'
 
-    it('should be named propery', done => {
-      test(CSV1, CSV2)
-        .pipe(csv2json())
-        .pipe(assert.second(file => hasName(file, '串本.json')))
-        .pipe(assert.end(done))
-    })
+      const CSV2 =
+        'menu,title,lat,lng,content\n' +
+        '白浜,円月島,76.54,32.1,これは円月島です\n' +
+        '公衆トイレ,xyz,3,4,wu'
 
-    it('should return converted json from csv, thirdly in this case', done => {
-      const item = [
-        {
-          'title': '円月島',
-          'lat': '76.54',
-          'lng': '32.1',
-          'content': 'これは円月島です'
-        }
-      ]
-      test(CSV1, CSV2)
-        .pipe(csv2json())
-        .pipe(assert.nth(2, file => isJSON(file, item)))
-        .pipe(assert.end(done))
-    })
-
-    it('should be named propery', done => {
-      test(CSV1, CSV2)
-        .pipe(csv2json())
-        .pipe(assert.nth(2, file => hasName(file, '白浜.json')))
-        .pipe(assert.end(done))
+      it('should return 4 files', done => {
+        test(CSV1, CSV2)
+          .pipe(csv2json())
+          .pipe(assert.length(4))
+          .pipe(assert.end(done))
+      })
     })
   })
 })
