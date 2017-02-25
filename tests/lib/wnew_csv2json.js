@@ -270,6 +270,20 @@ describe('gulp-csv2json', () => {
           .pipe(assert.end(done))
       })
 
+      it('should skip even if menu menu is behind', done => {
+
+        const CSV =
+          'a,b,menu\n' +
+          '1,2\n' +
+          '3,4,value2'
+        const expected2nd = [{ a: '3', b: '4' }]
+        test(CSV)
+          .pipe(csv2json())
+          .pipe(assert.length(2))
+          .pipe(assert.second(mainFile => isJSON(mainFile, expected2nd)))
+          .pipe(assert.end(done))
+      })
+
     })
   })
 
