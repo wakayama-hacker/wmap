@@ -19,7 +19,7 @@ gulp.task('build', function (cb) {
 })
 
 gulp.task('csv2json', () => {
-  gulp.src('./example/**/*.csv')
+  gulp.src('./data/**/*.csv')
     .pipe(csv2json())
-    .pipe(gulp.dest('./dest'))
+    .pipe(gulp.dest('./json'))
 })

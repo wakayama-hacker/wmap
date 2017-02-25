@@ -5,9 +5,10 @@
   "main": "index.html",
   "scripts": {
     "start": "http-server -io",
-    "convert": "gulp csv2json",
-    "build": "riot tags/ js/tags.js && gulp build",
-    "test": "eslint --ext .js,.tag . && mocha tests/lib && npm run build && karma start",
+    "build": "gulp csv2json && riot tags/ js/tags.js && gulp build",
+    "test": "npm run test:unit && karma start",
+    "pretest": "npm run lint && npm run build",
+    "lint": "eslint --ext .js,.tag .",
     "test:unit": "mocha tests/lib"
   },
   "author": "",
