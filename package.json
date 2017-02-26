@@ -6,7 +6,10 @@
   "scripts": {
     "start": "http-server -io",
     "build": "riot tags/ js/tags.js && gulp build",
-    "test": "eslint --ext .js,.tag . && npm run build && karma start"
+    "test": "npm run test:unit && karma start",
+    "pretest": "npm run lint && npm run build",
+    "lint": "eslint --ext .js,.tag .",
+    "test:unit": "mocha tests/lib"
   },
   "author": "",
   "license": "MIT",
@@ -27,6 +30,10 @@
     "karma-riot": "^2.0.0",
     "mocha": "^3.2.0",
     "riot": "^3.0.4",
+    "stream-array": "^1.1.2",
+    "stream-assert": "^2.0.3",
+    "through2": "^2.0.3",
+    "vinyl": "^2.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
