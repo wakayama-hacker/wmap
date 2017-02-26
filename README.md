@@ -17,24 +17,13 @@ $ npm start
 $ npm test
 ```
 
-## special gulp plugin
+## data
 
-### usage
+### CSVファイルの例
 
-```
-// gulpfile.js
-
-const gulp = require('gulp')
-const csv2json = require('./lib/wnew_csv2json')
-
-gulp.task('default', () => {
-  gulp.src('./data/**/*.csv')
-    .pipe(csv2json())
-    .pipe(gulp.dest('./json'))
-})
-
-```
-### input
+`./data`フォルダ以下にCSVファイルを置いてください。
+CSVファイルの項目には、`menu`という列が必要です。
+CSVファイルは分割することができます。（`串本.csv`、`白浜.csv`など）
 
 ```
 menu,title,lat,lng,content
@@ -42,29 +31,4 @@ menu,title,lat,lng,content
 串本,潮岬,33.437084,135.755906,本州最南端の潮岬です。
 白浜,円月島,33.690140,135.337222,円月島です。
 公衆トイレ,大島ポケットパーク公衆トイレ,33.463798,135.798294,ポケットパークの公衆トイレです。
-```
-
-### output
-
-#### menu.json
-
-```
-["串本", "公衆トイレ", "白浜"]
-```
-
-#### 串本.json, 公衆トイレ.json, 白浜.json
-
-example for 串本.json
-
-```
-[
-  ...
-  {
-    totle: "橋杭岩",
-    lat: "33.488547",
-    lng: "135.795751",
-    content: "これは橋杭岩です。"
-  },
-  ...
-]
 ```
