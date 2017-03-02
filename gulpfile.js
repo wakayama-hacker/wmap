@@ -25,3 +25,10 @@ gulp.task('csv', () => {
 })
 
 gulp.task('build', ['js', 'csv'])
+
+gulp.task( 'twitter_bootstrap', function () {
+	return gulp.src( [
+			'node_modules/bootstrap/dist/css/bootstrap.css'
+		] )
+		.pipe( gulp.dest( 'src' ) );
+} );
