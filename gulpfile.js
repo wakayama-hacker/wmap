@@ -28,10 +28,12 @@ gulp.task('csv', () => {
 
 gulp.task('js', function(){
   browserify({
-    entries: ['src/main.js']
+    entries: ['js/app.js']
   })
   .bundle()
-  .pipe(source('main.js'))
+  .pipe(source('app.js'))
+  .pipe(buffer())
+  .pipe($.uglify())
   .pipe(gulp.dest('js/'));
 });
 
