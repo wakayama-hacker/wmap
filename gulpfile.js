@@ -4,6 +4,8 @@ var source = require('vinyl-source-stream')
 var buffer = require('vinyl-buffer')
 var uglify = require('gulp-uglify')
 var csv2json = require('./lib/wnew_csv2json')
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 
 gulp.task('js', function (cb) {
@@ -23,5 +25,16 @@ gulp.task('csv', () => {
     .pipe(csv2json())
     .pipe(gulp.dest('./json'))
 })
+
+gulp.task('js', function(){
+  browserify({
+    entries: ['js/app.js']
+  })
+  .bundle()
+  .pipe(source('app.js'))
+  .pipe(buffer())
+  .pipe($.uglify())
+  .pipe(gulp.dest('js/'));
+});
 
 gulp.task('build', ['js', 'csv'])
