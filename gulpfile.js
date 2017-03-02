@@ -8,10 +8,10 @@ var csv2json = require('./lib/wnew_csv2json')
 
 gulp.task('js', function (cb) {
   browserify({
-    entries: ['src/main.js']
+    entries: ['src/app.js']
   })
   .bundle()
-  .pipe(source('main.min.js'))
+  .pipe(source('app.min.js'))
   .pipe(buffer())
   .pipe(uglify())
   .pipe(gulp.dest('js'))
@@ -24,4 +24,12 @@ gulp.task('csv', () => {
     .pipe(gulp.dest('./json'))
 })
 
-gulp.task('build', ['js', 'csv'])
+gulp.task( 'twitter_bootstrap', function () {
+  gulp.src([
+    'node_modules/bootstrap/dist/css/bootstrap.css',
+    'node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*'
+  ])
+		.pipe( gulp.dest( 'css' ) )
+} )
+
+gulp.task('build', ['js', 'csv','twitter_bootstrap'])
