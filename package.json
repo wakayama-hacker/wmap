@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.23.1",
-    "browserify": "^13.1.1",
+    "browserify": "^13.3.0",
     "eslint": "^3.15.0",
     "eslint-plugin-riot": "^0.1.6",
     "expect.js": "^0.3.1",
@@ -40,6 +40,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "browserify": "^13.3.0",
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
