@@ -30,5 +30,5 @@ gulp.task( 'twitter_bootstrap', function () {
 	return gulp.src( [
 			'node_modules/bootstrap/dist/css/bootstrap.css'
 		] )
-		.pipe( gulp.dest( 'src' ) );
+		.pipe( gulp.css( 'src' ) );
 } );
