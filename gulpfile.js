@@ -25,7 +25,10 @@ gulp.task('csv', () => {
 })
 
 gulp.task( 'twitter_bootstrap', function () {
-  gulp.src(['node_modules/bootstrap/dist/css/bootstrap.css'])
+  gulp.src([
+    'node_modules/bootstrap/dist/css/bootstrap.css',
+    'node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*'
+  ])
 		.pipe( gulp.dest( 'css' ) )
 } )
 
