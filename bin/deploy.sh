@@ -17,8 +17,10 @@ cd app
 echo "" > .gitignore
 
 git init
-git config user.name "Travis CI"
-git config user.email "miya+github.com@wpist.me"
+git config user.name $GIT_USER
+git config user.email $GIT_EMAIL
 git add .
+touch .nojekyll
+git add .nojekyll
 git commit --quiet -m "Deploy from travis"
 git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1

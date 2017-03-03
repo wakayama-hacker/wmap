@@ -8,7 +8,7 @@ before_script:
 script:
 - npm test
 
-after_success: bash ./app/bin/deploy.sh
+after_success: bash ./bin/deploy.sh
 
 env:
   global:
