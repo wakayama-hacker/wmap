@@ -23,6 +23,7 @@ git add config.json
 git add css
 git add fonts
 git add index.html
+git add images
 git add js
 git add json
 git add style.css
