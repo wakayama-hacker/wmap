@@ -10,8 +10,23 @@ const source      = require( 'vinyl-source-stream' )
 const streamqueue = require( 'streamqueue' )
 const uglify      = require( 'gulp-uglify' )
 const xlsx2csv    = require( './lib/gulp-wxlsx2csv' )
+const marked      = require( 'gulp-marked' )
+const replace     = require( 'gulp-replace' )
+const rename      = require( 'gulp-rename' )
 
-gulp.task( 'js', function ( cb ) {
+gulp.task( 'md', () => {
+  gulp.src( 'README.md' )
+    .pipe( marked( {} ) )
+    .pipe( replace( /^/, "<home-contents class=\"home-contents\">\n<div class=\"wrap\">" ) )
+    .pipe( replace( /$/, "</div>\n</home-contents>" ) )
+    .pipe( rename( (path) => {
+      path.basename = "home-contents";
+      path.extname = ".tag"
+    } ) )
+    .pipe( gulp.dest( 'tags' ) )
+} )
+
+gulp.task( 'js', [ 'md' ], function ( cb ) {
   browserify( {
     entries: [ 'src/app.js' ]
   } )

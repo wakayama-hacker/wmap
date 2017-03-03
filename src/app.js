@@ -8,6 +8,7 @@ const menu_item = require( '../tags/menu-item.tag' )
 const menu_header = require( '../tags/menu-header.tag' )
 const main_header = require( '../tags/main-header.tag' )
 const main_contents = require( '../tags/main-contents.tag' )
+const home_contents = require( '../tags/home-contents.tag' )
 
 const slideout = new Slideout( {
   'panel': document.getElementById( 'panel' ),
@@ -18,6 +19,7 @@ const slideout = new Slideout( {
 } )
 
 riot.mount( main_contents )
+riot.mount( home_contents )
 
 request
   .get( 'json/menu.json' )
