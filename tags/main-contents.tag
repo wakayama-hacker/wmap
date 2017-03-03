@@ -1,7 +1,9 @@
 <main-contents>
-  <div style="margin: 24px;" each={ data }>
-    <h2>{ title }</h2>
-    <p>{ content }</p>
+  <div class="item" each={ data }>
+    <div class="container">
+      <h2>{ title }</h2>
+      <p>{ content }</p>
+    </div>
   </div>
   <script type="es6">
     if ( opts.data ) {

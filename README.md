@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/wakayama-hacker/wnew.svg?branch=master)](https://travis-ci.org/wakayama-hacker/wnew)
 
+https://wakayama-hacker.github.io/wnew/
+
 ## Build and start WNEW
 
 ```

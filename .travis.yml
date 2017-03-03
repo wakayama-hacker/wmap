@@ -1,11 +1,18 @@
 language: node_js
 node_js:
-- 'node'
-- '6'
-- '4'
+- '7.6'
 
 before_script:
-  - npm install
+- npm install
 
 script:
-  - npm test
+- npm test
+
+after_success: bash ./bin/deploy.sh
+
+env:
+  global:
+  - GIT_USER: Travis CI
+  - GIT_EMAIL: miya0001@users.noreply.github.com
+  - GH_REF: github.com/wakayama-hacker/wnew.git
+  - secure: "Dpj02rIxMH6MrZvKvTJCCIA4pPQ1vwKj0Ia6+fFDFmJTccpLe3wtd2MKYlhb+QDtn/V2Z+ujzeYflaLRYJsF7ESM83RiGyJDOx53Qp1LK+5l8QylXluhsOzQ4dFG5CSL8k2Xx9z7b/Atu+xohch1i9x6WZkF57HchP2qdpjPS40pGl6siFwJmKyYKwmbrGhs0lM+7XST1oZXiYM0omOKzuwPF0FcfxNGhI7pq1w3wWoHdEIEUujfXjPOGi3yGWMGGswHNnzsG41tPYpILUmfpaXi35x265K2z8Yq9gn3Y6CiH+FrJVSRbfOf+jIKeIn5d9NhRmz3zGAwo76Au5eRPZvwCDlNmwSw8ZEsJJLfMoxQ1MLM6kTU9maEnpqjbIJzcsPW0pRyMn/WErhjVJoIPgvV/Lu5oX1MIGzcir4/GNelnBCFgT+OqZfAOdSBwSFTpE+a5BG7FAVKFCL4lPiPINY5uidw7IIfc9S+xksSP2MqNIL+ZQRjH8FRmQ5nEbl0v6jl0BflDhppBx84ObkoI3npElHhzwzNu8lCOW0Va6WDpEEtiB/41yoeh5Aj+ovcSGiAcGzU+cnuKkCJJfWE4m+YZWm4vLA9Egc08ZCTGhYsI8JMdBMlZLFyNOOX31OE2ZC2JZkmADSse0UYxipV8dU33LHsUTLH3Rqq0pRk1vY="
