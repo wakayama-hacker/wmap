@@ -38,7 +38,7 @@ request
   .end( function( err, res ) {
     document.title = res.body.main_title
 
-    riot.mount( menu_header, { title: res.body.menu_title } )
+    riot.mount( menu_header, { title: res.body.menu_title, slideout: slideout } )
     riot.mount( main_header, { title: res.body.main_title } )
 
     document.querySelector( '.toggle' ).addEventListener( 'click', function() {

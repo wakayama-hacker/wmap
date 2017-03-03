@@ -1,13 +1,25 @@
 #menu
 {
   background-color: #f7f7f7;
+  background-image: url( ../img/cork-wallet.png );
   color: #555555;
 
   .header
   {
     color: #555555;
-    border-bottom: 1px solid #dedede;
-    box-shadow: 0 0 1px 0 rgba( 255, 255, 255, 0.2 );
+    border-bottom: 1px solid #bbbbbb;
+    box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 0.7 );
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .header:hover
+  {
+    background-color: rgb( 85, 115, 187 );
+    color: #ffffff;
   }
 
   .menu-item
@@ -22,8 +34,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px $horizontal-padding;
-    border-bottom: 1px solid #dedede;
-    box-shadow: 0 0 1px 0 rgba( 255, 255, 255, 0.2 );
+    border-bottom: 1px solid #bbbbbb;
+    box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 0.7 );
     cursor: pointer;
   }
 
