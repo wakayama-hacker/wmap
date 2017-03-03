@@ -48,24 +48,24 @@ request
     const fixed = document.querySelector( '.fixed-header' )
 
     slideout.on( 'translate', function( translated ) {
-      fixed.style.transform = 'translateX(' + translated + 'px)';
+      fixed.style.transform = 'translateX(' + translated + 'px)'
     } )
 
     slideout.on( 'beforeopen', function() {
-      fixed.style.transition = 'transform 300ms ease';
-      fixed.style.transform = 'translateX(-256px)';
+      fixed.style.transition = 'transform 300ms ease'
+      fixed.style.transform = 'translateX(-256px)'
     } )
 
     slideout.on( 'beforeclose', function() {
-      fixed.style.transition = 'transform 300ms ease';
-      fixed.style.transform = 'translateX(0px)';
+      fixed.style.transition = 'transform 300ms ease'
+      fixed.style.transform = 'translateX(0px)'
     } )
 
     slideout.on( 'open', function() {
-      fixed.style.transition = '';
+      fixed.style.transition = ''
     } )
 
     slideout.on( 'close', function() {
-      fixed.style.transition = '';
+      fixed.style.transition = ''
     } )
   } )
