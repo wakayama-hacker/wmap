@@ -28,9 +28,10 @@ describe('gulp-csv2json', () => {
         })
 
         it('should return menu array, firstly', done => {
+          const json = [{ id: 0, value: '串本' }]
           test(CSV)
             .pipe(csv2json())
-            .pipe(assert.first(isJSON(['串本'])))
+            .pipe(assert.first(isJSON(json)))
             .pipe(assert.end(done))
         })
 
@@ -48,8 +49,7 @@ describe('gulp-csv2json', () => {
               'lat': '12.345',
               'lng': '123.45',
               'content': 'これは橋杭岩です'
-            },
-            {
+            }, {
               'title': '潮岬',
               'lat': '23.456',
               'lng': '132.1',
@@ -65,7 +65,7 @@ describe('gulp-csv2json', () => {
         it('should be named propery', done => {
           test(CSV)
             .pipe(csv2json())
-            .pipe(assert.second(hasName('串本.json')))
+            .pipe(assert.second(hasName('0.json')))
             .pipe(assert.end(done))
         })
       })
@@ -87,9 +87,13 @@ describe('gulp-csv2json', () => {
         })
 
         it('should return menu array, firstly', done => {
+          const json = [
+            { id: 0, value: '串本' },
+            { id: 1, value: '白浜' }
+          ]
           test(CSV)
             .pipe(csv2json())
-            .pipe(assert.first(isJSON(['串本','白浜'])))
+            .pipe(assert.first(isJSON(json)))
             .pipe(assert.end(done))
         })
 
@@ -100,8 +104,7 @@ describe('gulp-csv2json', () => {
               'lat': '12.345',
               'lng': '123.45',
               'content': 'これは橋杭岩です'
-            },
-            {
+            }, {
               'title': '潮岬',
               'lat': '23.456',
               'lng': '132.1',
@@ -118,7 +121,7 @@ describe('gulp-csv2json', () => {
         it('should be named propery', done => {
           test(CSV)
             .pipe(csv2json())
-            .pipe(assert.second(hasName('串本.json')))
+            .pipe(assert.second(hasName('0.json')))
             .pipe(assert.end(done))
         })
 
@@ -140,7 +143,7 @@ describe('gulp-csv2json', () => {
         it('should be named propery', done => {
           test(CSV)
             .pipe(csv2json())
-            .pipe(assert.nth(2, hasName('白浜.json')))
+            .pipe(assert.nth(2, hasName('1.json')))
             .pipe(assert.end(done))
         })
       })
@@ -166,9 +169,13 @@ describe('gulp-csv2json', () => {
         })
 
         it('should return menu array, firstly', done => {
+          const json = [
+            { id: 0, value: '串本' },
+            { id: 1, value: '白浜' },
+          ]
           test(CSV1, CSV2)
             .pipe(csv2json())
-            .pipe(assert.first(isJSON(['串本','白浜'])))
+            .pipe(assert.first(isJSON(json)))
             .pipe(assert.end(done))
         })
 
@@ -179,8 +186,7 @@ describe('gulp-csv2json', () => {
               'lat': '12.345',
               'lng': '123.45',
               'content': 'これは橋杭岩です'
-            },
-            {
+            }, {
               'title': '潮岬',
               'lat': '23.456',
               'lng': '132.1',
@@ -196,7 +202,7 @@ describe('gulp-csv2json', () => {
         it('should be named propery', done => {
           test(CSV1, CSV2)
             .pipe(csv2json())
-            .pipe(assert.second(hasName('串本.json')))
+            .pipe(assert.second(hasName('0.json')))
             .pipe(assert.end(done))
         })
 
@@ -218,7 +224,7 @@ describe('gulp-csv2json', () => {
         it('should be named propery', done => {
           test(CSV1, CSV2)
             .pipe(csv2json())
-            .pipe(assert.nth(2, hasName('白浜.json')))
+            .pipe(assert.nth(2, hasName('1.json')))
             .pipe(assert.end(done))
         })
       })
@@ -277,8 +283,8 @@ describe('gulp-csv2json', () => {
         test(CSV)
           .pipe(csv2json())
           .pipe(assert.length(2))
-          .pipe(assert.first(isJSON(['value1'])))
-          .pipe(assert.second(hasName('value1.json')))
+          .pipe(assert.first(isJSON([ { id:0, value: 'value1' }])))
+          .pipe(assert.second(hasName('0.json')))
           .pipe(assert.second(isJSON(expected)))
           .pipe(assert.end(done))
       })
@@ -290,8 +296,8 @@ describe('gulp-csv2json', () => {
         test(CSV)
           .pipe(csv2json())
           .pipe(assert.length(2))
-          .pipe(assert.first(isJSON(['value1'])))
-          .pipe(assert.second(hasName('value1.json')))
+          .pipe(assert.first(isJSON([ { id:0, value: 'value1' }])))
+          .pipe(assert.second(hasName('0.json')))
           .pipe(assert.second(isJSON(expected)))
           .pipe(assert.end(done))
       })
