@@ -12,11 +12,8 @@ if [[ "master" != "$TRAVIS_BRANCH" ]]; then
 	exit
 fi
 
-cd app
-
 echo "" > .gitignore
 
-git init
 git config user.name $GIT_USER
 git config user.email $GIT_EMAIL
 git add .
