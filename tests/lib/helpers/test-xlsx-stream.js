@@ -1,7 +1,10 @@
 'use strict'
 
-const array = require( 'stream-array' )
-const fs    = require( 'fs' )
+const array  = require( 'stream-array' )
+const fs     = require( 'fs' )
+const File   = require( 'vinyl' )
+
+
 /**
  * create File streams for testing
  * @params {Arguments} filenames in tests/lib/fixtures
@@ -11,6 +14,22 @@ module.exports = function () {
   // spread arguments into array
   const args = Array.prototype.slice.call( arguments )
 
+  // incremental number to avoid path duplication
+  let i = 0
+
+  /**
+   * create dummy vinyl Object
+   * @param  {string} contents content of a file
+   * @return {Vinyl}           vinyl object
+   */
+  const create = filename => new File( {
+    cwd: '/home/wacker/',
+    base: '/home/wacker/test',
+    path: `/home/wacker/test/file${ ( i++ ).toString() }.xlsx`,
+    contents: new Buffer( fs.readFileSync( `${ __dirname }/../fixtures/${ filename }` ) ),
+    stat: { mode: '0666' }
+  } )
+
   // map streams
-  return array( args.map( path => fs.createReadStream( path ) ) )
+  return array( args.map( create ) )
 }

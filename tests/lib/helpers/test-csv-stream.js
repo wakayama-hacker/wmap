@@ -23,7 +23,7 @@ module.exports = function () {
   const create = contents => new File( {
     cwd: '/home/wacker/',
     base: '/home/wacker/test',
-    path: `/home/wacker/test/file${ ( i++ ).toString() }.extension`,
+    path: `/home/wacker/test/file${ ( i++ ).toString() }.csv`,
     contents: new Buffer( contents ),
     stat: { mode: '0666' }
   } )
