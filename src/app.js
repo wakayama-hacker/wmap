@@ -28,7 +28,7 @@ request
       slideout: slideout,
       json: res.body
     } )
-  })
+  } )
 
 request
   .get( 'config.json' )
@@ -40,4 +40,4 @@ request
     document.querySelector( '.toggle' ).addEventListener( 'click', function() {
       slideout.toggle()
     } )
-  })
+  } )
