@@ -12,11 +12,21 @@ if [[ "master" != "$TRAVIS_BRANCH" ]]; then
 	exit
 fi
 
-echo "" > .gitignore
+rm -fr .git
+rm -fr .gitignore
 
+git init
 git config user.name $GIT_USER
 git config user.email $GIT_EMAIL
-git add .
+
+git add config.json
+git add css
+git add fonts
+git add index.html
+git add js
+git add json
+git add style.css
+
 touch .nojekyll
 git add .nojekyll
 git commit --quiet -m "Deploy from travis"
