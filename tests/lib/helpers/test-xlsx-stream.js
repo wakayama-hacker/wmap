@@ -14,9 +14,6 @@ module.exports = function () {
   // spread arguments into array
   const args = Array.prototype.slice.call( arguments )
 
-  // incremental number to avoid path duplication
-  let i = 0
-
   /**
    * create dummy vinyl Object
    * @param  {string} contents content of a file
@@ -24,8 +21,8 @@ module.exports = function () {
    */
   const create = filename => new File( {
     cwd: '/home/wacker/',
-    base: '/home/wacker/test',
-    path: `/home/wacker/test/file${ ( i++ ).toString() }.xlsx`,
+    base: `${ __dirname }/../fixtures/`,
+    path: `${ __dirname }/../fixtures/${ filename }`,
     contents: new Buffer( fs.readFileSync( `${ __dirname }/../fixtures/${ filename }` ) ),
     stat: { mode: '0666' }
   } )
