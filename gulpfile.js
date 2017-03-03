@@ -1,14 +1,15 @@
 'use strict'
 
-var gulp = require( 'gulp' )
-var browserify = require( 'browserify' )
-var riotify    = require( 'riotify' )
-var source = require( 'vinyl-source-stream' )
-var buffer = require( 'vinyl-buffer' )
-var uglify = require( 'gulp-uglify' )
-var sass = require( 'gulp-sass' )
-var csv2json = require( './lib/wnew_csv2json' )
-
+const browserify  = require( 'browserify' )
+const buffer      = require( 'vinyl-buffer' )
+const csv2json    = require( './lib/gulp-wcsv2json' )
+const gulp        = require( 'gulp' )
+const riotify     = require( 'riotify' )
+const sass        = require( 'gulp-sass' )
+const source      = require( 'vinyl-source-stream' )
+const streamqueue = require( 'streamqueue' )
+const uglify      = require( 'gulp-uglify' )
+const xlsx2csv    = require( './lib/gulp-wxlsx2csv' )
 
 gulp.task( 'js', function ( cb ) {
   browserify( {
@@ -23,8 +24,17 @@ gulp.task( 'js', function ( cb ) {
   .on( 'end', cb )
 } )
 
-gulp.task( 'csv', () => {
-  gulp.src( './data/**/*.csv' )
+gulp.task( 'data', () => {
+
+  // merge streams of csv and xlsx
+  streamqueue(
+    { objectMode: true },
+    // load csv
+    gulp.src( './data/**/*.csv' ),
+    // load xlsx and convert
+    gulp.src( './data/**/*.xlsx' )
+      .pipe( xlsx2csv() )
+  )
     .pipe( csv2json() )
     .pipe( gulp.dest( './json' ) )
 } )
@@ -51,4 +61,4 @@ gulp.task( 'sass', () => {
     .pipe( gulp.dest( './css' ) )
 } )
 
-gulp.task( 'build', [ 'js', 'csv','twitter_bootstrap', 'sass', 'fonts' ] )
+gulp.task( 'build', [ 'js', 'data','twitter_bootstrap', 'sass', 'fonts' ] )
