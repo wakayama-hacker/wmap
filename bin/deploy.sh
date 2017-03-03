@@ -26,7 +26,6 @@ git add index.html
 git add img
 git add js
 git add json
-git add style.css
 
 touch .nojekyll
 git add .nojekyll
