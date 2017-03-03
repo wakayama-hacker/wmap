@@ -10,14 +10,19 @@
   }
   .main-contents
   {
+    display: block;
+
     .item
     {
       border-bottom: 1px solid #eeeeee;
-      box-shadow: 0 0 1px 0 rgba( 255, 255, 255, 0.2 );
-    }
-    .item .wrap
-    {
-      margin: 2em $horizontal-padding;
+      box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 1 );
+      margin: 0;
+      padding: 0;
+
+      .wrap
+      {
+        margin: 2em $horizontal-padding;
+      }
     }
   }
 }
