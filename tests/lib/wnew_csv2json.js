@@ -398,7 +398,7 @@ describe('gulp-csv2json', () => {
           .pipe(assert.end(done))
       })
 
-      it('should escape new lines(\n)', done => {
+      it('should escape new lines(\\n)', done => {
 
         const CSV =
           'menu,title,lat,lng,content\n' +
