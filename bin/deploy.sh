@@ -26,6 +26,7 @@ git add index.html
 git add img
 git add js
 git add json
+git add CNAME
 
 touch .nojekyll
 git add .nojekyll
