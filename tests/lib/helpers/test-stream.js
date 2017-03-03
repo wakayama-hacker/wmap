@@ -4,7 +4,8 @@ const array = require('stream-array')
 const File  = require('vinyl')
 
 /**
- * create File streams for test
+ * create File streams for testing
+ * @params {Arguments} file contents
  * @return {Array} array stream
  */
 module.exports = function () {
@@ -15,13 +16,13 @@ module.exports = function () {
 
   /**
    * create dummy vinyl Object
-   * @param  {String} contents content of a file
+   * @param  {string} contents content of a file
    * @return {Vinyl}           vinyl object
    */
   const create = contents => new File({
     cwd: '/home/wacker/',
     base: '/home/wacker/test',
-    path: '/home/wacker/test/file' + (i++).toString() + '.extension',
+    path: `/home/wacker/test/file${(i++).toString()}.extension`,
     contents: new Buffer(contents),
     stat: { mode: '0666' }
   })
