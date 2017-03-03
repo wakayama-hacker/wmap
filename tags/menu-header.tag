@@ -4,7 +4,7 @@
 
   <script type="es6">
     this.title = opts.title
-    this.click = function( e ) {
+    this.click = function() {
       riot.mount( 'main-contents', {} )
       opts.slideout.close()
     }.bind( this )
