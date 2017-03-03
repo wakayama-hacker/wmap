@@ -1,0 +1,31 @@
+$horizontal-padding: 18px;
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.header
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  padding: 0 $horizontal-padding;
+  height: 40px;
+
+  .title
+  {
+    font-size: 16px;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .toggle
+  {
+    cursor: pointer;
+  }
+}

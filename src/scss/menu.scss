@@ -1,0 +1,35 @@
+#menu
+{
+  background-color: #f7f7f7;
+  color: #555555;
+
+  .header
+  {
+    color: #555555;
+    border-bottom: 1px solid #dedede;
+    box-shadow: 0 0 1px 0 rgba( 255, 255, 255, 0.2 );
+  }
+
+  .menu-item
+  {
+    display: block;
+  }
+
+  .item
+  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px $horizontal-padding;
+    border-bottom: 1px solid #dedede;
+    box-shadow: 0 0 1px 0 rgba( 255, 255, 255, 0.2 );
+    cursor: pointer;
+  }
+
+  .item:hover
+  {
+    background-color: rgb( 85, 115, 187 );
+    color: #ffffff;
+  }
+}
