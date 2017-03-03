@@ -8,14 +8,14 @@
     this.items = opts.json
     this.click = function( e ) {
       const id = e.target.getAttribute( 'data-item' )
-      if ( id.match( /^[0-9]+$/ )) {
+      if ( id.match( /^[0-9]+$/ ) ) {
         opts.request
           .get( 'json/' + id + '.json' )
           .set( 'Accept', 'application/json' )
-          .end(function( err, res ) {
+          .end( function( err, res ) {
             riot.mount( 'main-contents', { data: res.body } )
             opts.slideout.close()
-          })
+          } )
       }
     }.bind( this )
   </script>
