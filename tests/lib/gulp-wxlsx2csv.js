@@ -46,4 +46,10 @@ describe( 'gulp-xlsx2csv', () => {
       .pipe( assert.end( done ) )
   } )
 
+  it( 'should handle error in case of non parsable file', done => {
+    test( 'notexcel.xlsx' )
+      .pipe( xlsx2csv() )
+      .on( 'error',() => done() )
+  } )
+
 } )
