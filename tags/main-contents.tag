@@ -1,5 +1,5 @@
 <main-contents>
-  <div style="margin: 24px;" each={ data }>
+  <div class="item" each={ data }>
     <h2>{ title }</h2>
     <p>{ content }</p>
   </div>
