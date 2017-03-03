@@ -21,6 +21,7 @@ gulp.task( 'md', () => {
     .pipe( replace( /^/, '<home-contents class="home-contents">' + "\n" + '<div class="wrap">' ) )
     // eslint-disable-next-line quotes
     .pipe( replace( /$/, '</div>' + "\n" + '</home-contents>' ) )
+    .pipe( replace( /<table>/, '<table class="table table-bordered">' ) )
     .pipe( rename( ( path ) => {
       path.basename = 'home-contents'
       path.extname = '.tag'
