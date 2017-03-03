@@ -17,11 +17,13 @@ const rename      = require( 'gulp-rename' )
 gulp.task( 'md', () => {
   gulp.src( 'README.md' )
     .pipe( marked( {} ) )
-    .pipe( replace( /^/, "<home-contents class=\"home-contents\">\n<div class=\"wrap\">" ) )
-    .pipe( replace( /$/, "</div>\n</home-contents>" ) )
-    .pipe( rename( (path) => {
-      path.basename = "home-contents";
-      path.extname = ".tag"
+    // eslint-disable-next-line quotes
+    .pipe( replace( /^/, '<home-contents class="home-contents">' + "\n" + '<div class="wrap">' ) )
+    // eslint-disable-next-line quotes
+    .pipe( replace( /$/, '</div>' + "\n" + '</home-contents>' ) )
+    .pipe( rename( ( path ) => {
+      path.basename = 'home-contents'
+      path.extname = '.tag'
     } ) )
     .pipe( gulp.dest( 'tags' ) )
 } )
