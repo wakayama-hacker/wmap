@@ -4,7 +4,7 @@
  */
 'use strict'
 
-const expect   = require('expect.js')
+const expect   = require( 'expect.js' )
 
 /**
  * create a callback to check if the given Vinyl has a certain filename
@@ -12,7 +12,7 @@ const expect   = require('expect.js')
  * @param  {string}  name [description]
  * @return {Function}       [description]
  */
-const hasName = name => file => expect(file.path).to.equal(`${file.base}/${name}`)
+const hasName = name => file => expect( file.path ).to.equal( `${file.base}/${name}` )
 
 /**
  * create a callback to check if the given Vinyl has a certain json string
@@ -20,6 +20,6 @@ const hasName = name => file => expect(file.path).to.equal(`${file.base}/${name}
  * @param  {Object}  json [description]
  * @return {Function}       [description]
  */
-const isJSON = json => file => expect(file.contents.toString()).to.equal(JSON.stringify(json))
+const isJSON = json => file => expect( file.contents.toString() ).to.equal( JSON.stringify( json ) )
 
 module.exports = { hasName, isJSON }
