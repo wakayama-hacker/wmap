@@ -1,26 +1,9 @@
 'use strict'
 
 const assert   = require('stream-assert')
-const expect   = require('expect.js')
 const csv2json = require('../../lib/wnew_csv2json')
-const test     = require('./helper/test-stream')
-
-/**
- * An assertion Helper to check if a vinyl object has a certain filename
- * @param  {Vinyl}   file [description]
- * @param  {String}  name [description]
- * @return {Expect}       [description]
- */
-const hasName = name => file => expect(file.path).to.equal(`${file.base}/${name}`)
-
-/**
-* An assertion Helper to check if a vinyl object has a certain json string
- * @param  {Vinyl}   file [description]
- * @param  {Object}  json [description]
- * @return {Expect}       [description]
- */
-const isJSON = json => file => expect(file.contents.toString()).to.equal(JSON.stringify(json))
-
+const test     = require('./helpers/test-stream')
+const { hasName, isJSON } = require('./helpers/assert-vinyl')
 
 describe('gulp-csv2json', () => {
 
