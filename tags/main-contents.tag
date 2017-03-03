@@ -6,8 +6,6 @@
   <script type="es6">
     if ( opts.data ) {
       this.data = opts.data
-    } else {
-
     }
   </script>
 </main-contents>
