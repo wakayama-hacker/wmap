@@ -37,9 +37,35 @@ request
   .set( 'Accept', 'application/json' )
   .end( function( err, res ) {
     document.title = res.body.main_title
+
     riot.mount( menu_header, { title: res.body.menu_title } )
     riot.mount( main_header, { title: res.body.main_title } )
+
     document.querySelector( '.toggle' ).addEventListener( 'click', function() {
       slideout.toggle()
+    } )
+
+    const fixed = document.querySelector( '.fixed-header' )
+
+    slideout.on( 'translate', function( translated ) {
+      fixed.style.transform = 'translateX(' + translated + 'px)';
+    } )
+
+    slideout.on( 'beforeopen', function() {
+      fixed.style.transition = 'transform 300ms ease';
+      fixed.style.transform = 'translateX(-256px)';
+    } )
+
+    slideout.on( 'beforeclose', function() {
+      fixed.style.transition = 'transform 300ms ease';
+      fixed.style.transform = 'translateX(0px)';
+    } )
+
+    slideout.on( 'open', function() {
+      fixed.style.transition = '';
+    } )
+
+    slideout.on( 'close', function() {
+      fixed.style.transition = '';
     } )
   } )
