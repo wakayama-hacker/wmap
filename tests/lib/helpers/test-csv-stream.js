@@ -9,6 +9,7 @@ const File  = require( 'vinyl' )
  * @return {Array} array stream
  */
 module.exports = function () {
+  // spread arguments into array
   const args = Array.prototype.slice.call( arguments )
 
   // incremental number to avoid path duplication
@@ -22,7 +23,7 @@ module.exports = function () {
   const create = contents => new File( {
     cwd: '/home/wacker/',
     base: '/home/wacker/test',
-    path: `/home/wacker/test/file${( i++ ).toString()}.extension`,
+    path: `/home/wacker/test/file${ ( i++ ).toString() }.csv`,
     contents: new Buffer( contents ),
     stat: { mode: '0666' }
   } )

@@ -34,10 +34,12 @@
     "riotify": "^2.0.0",
     "stream-array": "^1.1.2",
     "stream-assert": "^2.0.3",
+    "streamqueue": "^1.1.1",
     "through2": "^2.0.3",
     "vinyl": "^2.0.1",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "xlsx": "^0.8.6"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",

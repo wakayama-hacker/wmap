@@ -1,8 +1,8 @@
 'use strict'
 
 const assert      = require( 'stream-assert' )
-const csv2json    = require( '../../lib/wnew_csv2json' )
-const test        = require( './helpers/test-stream' )
+const csv2json    = require( '../../lib/gulp-wcsv2json' )
+const test        = require( './helpers/test-csv-stream' )
 const expectVinyl = require( './helpers/expect-vinyl' )
 const hasName = expectVinyl.hasName
 const isJSON  = expectVinyl.isJSON
