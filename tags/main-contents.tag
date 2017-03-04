@@ -1,4 +1,4 @@
-<main-contents class="main-contents">
+<main-contents>
   <div class="item" each={ data } show={ data }>
     <div class="wrap">
       <h2>{ title }</h2>

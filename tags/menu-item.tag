@@ -1,4 +1,4 @@
-<menu-item class="menu-item">
+<menu-item>
   <div each={ items } class="item" data-item={ id } onclick={ click }>
     <div>{ value }</div>
     <div><i class="glyphicon glyphicon-menu-right"></i></div>

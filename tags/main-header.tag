@@ -1,4 +1,4 @@
-<main-header class="fixed-header header">
+<main-header>
   <div><h1 class="title">{ title }</h1></div>
   <div><i class="glyphicon glyphicon-menu-hamburger toggle"></i></div>
 
