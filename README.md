@@ -8,7 +8,7 @@ Wnew プロジェクトは、和歌山の IT コミュニティ [Wacker](http://
 
 http://wnew.wacker.io/
 
-GitHub リポジトリは以下の URL です。
+This project is hotsted on GitHub at the URL below. 
 
 https://github.com/wakayama-hacker/wnew
 
