@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/wakayama-hacker/wnew.svg?branch=master)](https://travis-ci.org/wakayama-hacker/wnew)
 
-Wnew プロジェクトは、和歌山の IT コミュニティ [Wacker](http://wacker.io/) のメンバーがスタートしたプロジェクトです。
+This project "wnew" was started by menbers of IT community "[Wacker](http://wacker.io/)" in Wakayama.
 
 このプロジェクトでは、 Excel や CSV のオープンデータから簡単にウェブベースのモバイルアプリを作れるようにすることを目標にしています。
 
