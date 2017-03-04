@@ -3,11 +3,10 @@
   box-shadow: 0 0 10px 0 rgba( 0, 0, 0, 0.5 );
   background-image: url( ../img/greyzz.png );
   color: #555555;
+  padding-top: 70px;
+  padding-bottom: 24px;
+  overflow: hidden;
 
-  .header
-  {
-    background-color: rgb( 66, 70, 73 );
-  }
   .main-contents
   {
     display: block;
@@ -25,6 +24,13 @@
       {
         margin: 2em $horizontal-padding;
       }
+    }
+  }
+  .home-contents
+  {
+    .wrap
+    {
+      margin: 0 $horizontal-padding;
     }
   }
 }

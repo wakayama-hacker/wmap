@@ -1,20 +1,26 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/leaflet.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Wnew</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   </head>
   <body>
     <nav id="menu">
-      <menu-header></menu-header>
-      <menu-item></menu-item>
+      <menu-header class="header"></menu-header>
+      <menu-item class="menu-item"></menu-item>
     </nav>
 
+    <main-header class="fixed-header header"></main-header>
+
     <main id="panel">
-      <main-header></main-header>
-      <main-contents></main-contents>
+      <main-contents class="main-contents"></main-contents>
     </main>
     <script src="js/app.min.js"></script>
   </body>
