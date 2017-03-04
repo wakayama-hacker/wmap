@@ -13,8 +13,9 @@ describe( 'open-street-map specs', function() {
       body.removeChild( body.firstChild )
     }
 
-    // create spy function
+    // keep old require variable being overiding
     require_prev = window.require
+    // create spied `require`
     window.require = function( name ) {
       if ( name === 'mapbox.js' ) {
         return {
