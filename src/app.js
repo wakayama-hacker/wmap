@@ -49,3 +49,8 @@ request
         } )
       } )
   } )
+
+document.querySelector( '.home-icon' ).addEventListener( 'click', function() {
+  slideout.close()
+  riot.mount( main_contents, {} )
+} )
