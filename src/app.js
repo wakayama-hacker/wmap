@@ -18,6 +18,10 @@ const slideout = new Slideout( {
   'side': 'right'
 } )
 
+if ( window.navigator.standalone ) {
+  document.querySelector( 'body' ).classList.add( 'web-app' )
+}
+
 request
   .get( 'config.json' )
   .set( 'Accept', 'application/json' )

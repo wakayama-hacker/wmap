@@ -1,4 +1,5 @@
 $horizontal-padding: 18px;
+$main-menu-height: 50px;
 
 body {
   width: 100%;
@@ -19,14 +20,13 @@ img
   background-color: rgb( 66, 70, 73 );
   position: fixed;
   width: 100%;
-  height: 70px;
   backface-visibility: hidden;
   z-index: 2;
   top: 0px;
   left: 0px;
 }
 
-.main-header
+.fixed-header .wrap
 {
   display: flex;
   flex-wrap: wrap;
@@ -35,7 +35,7 @@ img
   color: #ffffff;
   margin: 0;
   padding: 0 $horizontal-padding;
-  height: 50px;
+  height: $main-menu-height;
   overflow: hidden;
 
   .title
@@ -48,5 +48,27 @@ img
   .toggle
   {
     cursor: pointer;
+  }
+}
+
+#menu,
+#panel
+{
+  margin-top: $main-menu-height;
+}
+
+.web-app
+{
+  $app-status-bar-height: 20px;
+
+  .fixed-header
+  {
+    padding-top: $app-status-bar-height;
+  }
+
+  #menu,
+  #panel
+  {
+    margin-top: $app-status-bar-height + $main-menu-height;
   }
 }
