@@ -61,7 +61,6 @@ gulp.task( 'twitter_bootstrap', () => {
   gulp.src( [
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'node_modules/bootstrap/dist/css/bootstrap.min.css.map',
-    'node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*'
   ] )
 		.pipe( gulp.dest( 'css' ) )
 } )
