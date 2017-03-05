@@ -9,6 +9,7 @@ const menu_header = require( '../tags/menu-header.tag' )
 const main_header = require( '../tags/main-header.tag' )
 const main_contents = require( '../tags/main-contents.tag' )
 const home_contents = require( '../tags/home-contents.tag' )
+const open_street_map = require( '../tags/open-street-map.tag' )
 
 const slideout = new Slideout( {
   'panel': document.getElementById( 'panel' ),
@@ -30,6 +31,7 @@ request
 
     riot.mount( menu_header, { title: res.body.menu_title, slideout: slideout } )
     riot.mount( main_header, { title: res.body.main_title } )
+    riot.mount( open_street_map, { default: res.body.map.default, public_access_token: res.body.mapbox.public_access_token } )
 
     document.querySelector( '.toggle' ).addEventListener( 'click', function() {
       slideout.toggle()

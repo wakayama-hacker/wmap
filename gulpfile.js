@@ -65,6 +65,13 @@ gulp.task( 'twitter_bootstrap', () => {
 		.pipe( gulp.dest( 'css' ) )
 } )
 
+gulp.task( 'leaflet_css', () => {
+  gulp.src( [
+    'node_modules/mapbox.js/node_modules/leaflet/dist/leaflet.css'
+  ] )
+    .pipe( gulp.dest( 'css' ) )
+} )
+
 gulp.task( 'fonts', () => {
   gulp.src( [
     'node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*'
@@ -78,4 +85,11 @@ gulp.task( 'sass', () => {
     .pipe( gulp.dest( './css' ) )
 } )
 
-gulp.task( 'build', [ 'js', 'data','twitter_bootstrap', 'sass', 'fonts' ] )
+gulp.task( 'build', [
+  'js',
+  'data',
+  'twitter_bootstrap',
+  'leaflet_css',
+  'sass',
+  'fonts'
+] )
