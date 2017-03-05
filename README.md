@@ -8,7 +8,7 @@ This project "wnew" was started by members of IT community "[Wacker](http://wack
 
 http://wnew.wacker.io/
 
-GitHub リポジトリは以下の URL です。
+This project is hotsted on GitHub at the URL below. 
 
 https://github.com/wakayama-hacker/wnew
 
