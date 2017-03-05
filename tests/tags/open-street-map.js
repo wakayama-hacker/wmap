@@ -20,11 +20,15 @@ describe( 'open-street-map specs', function() {
       if ( name === 'mapbox.js' ) {
         const mock = {
           mapbox : {
-            map : function() { return {
-              setView : function() {
-                spy['mapPosition'] = Array.prototype.slice.call( arguments )
+            map : function( id, type ) {
+              spy.id = id
+              spy.type = type
+              return {
+                setView : function() {
+                  spy[ 'mapPosition' ] = Array.prototype.slice.call( arguments )
+                }
               }
-            } }
+            }
           },
           marker : function() {
             spy['markerPosition'] = Array.prototype.slice.call( arguments )
@@ -56,15 +60,22 @@ describe( 'open-street-map specs', function() {
     expect( spy.mapPosition ).to.eql( [ [ 12, 123 ], 12 ] )
   } )
 
+  it( 'should set map type', function() {
+    riot.mount( 'open-street-map', { default: { type: 'some.type' } } )
+    expect( spy.type ).to.be( 'some.type' )
+  } )
+
   it( 'should set default mapview', function() {
     riot.mount( 'open-street-map', {
       default: {
         lat  : 23,
         lng  : 134,
-        zoom : 14
+        zoom : 14,
+        type : 'some.default.type'
       }
     } )
     expect( spy.mapPosition ).to.eql( [ [ 23, 134 ], 14 ] )
+    expect( spy.type ).to.be( 'some.default.type' )
   } )
 
   it( 'should set public access token', function() {

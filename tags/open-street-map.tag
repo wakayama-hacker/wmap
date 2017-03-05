@@ -17,13 +17,14 @@
     ].concat( ( opts.classes || [] ) ).join( ' ' )
 
     // parse map arguments
-    const lat   = opts.lat  || ( opts.default && opts.default.lat )  || 0
-    const lng   = opts.lng  || ( opts.default && opts.default.lng )  || 0
-    const zoom  = opts.zoom || ( opts.default && opts.default.zoom ) || 10
+    const lat  = opts.lat  || ( opts.default && opts.default.lat )  || 0
+    const lng  = opts.lng  || ( opts.default && opts.default.lng )  || 0
+    const zoom = opts.zoom || ( opts.default && opts.default.zoom ) || 10
+    const type = opts.type || ( opts.default && opts.default.type ) || 'mapbox.streets'
 
     this.on( 'mount', function() {
       L.mapbox.accessToken = opts.public_access_token
-      const map = L.mapbox.map( id, 'mapbox.streets' ).setView( [ lat, lng ], zoom )
+      const map = L.mapbox.map( id, type ).setView( [ lat, lng ], zoom )
       L.marker( [ lat, lng ] ).addTo( map )
     } )
   </script>

@@ -5,11 +5,11 @@
     "default": {
       "lat": 35.681995,
       "lng": 139.766354,
-      "zoom": 10
+      "zoom": 10,
+      "type": "mapbox.streets"
     }
   },
   "mapbox": {
-    "public_access_token": "pk.eyJ1Ijoia2FtYXRhcnlvIiwiYSI6ImNpenVmNnJ2MTAwMDQycXBwZmloeng0ZTQifQ.5oBaHAa2R9HZl_FJjPGHSQ",
-    ""
+    "public_access_token": "pk.eyJ1Ijoia2FtYXRhcnlvIiwiYSI6ImNpenVmNnJ2MTAwMDQycXBwZmloeng0ZTQifQ.5oBaHAa2R9HZl_FJjPGHSQ"
   }
 }
