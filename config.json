@@ -1,4 +1,15 @@
 {
   "main_title": "Wnew",
-  "menu_title": "Home"
+  "menu_title": "Home",
+  "map": {
+    "default": {
+      "lat": 35.681995,
+      "lng": 139.766354,
+      "zoom": 10
+    }
+  },
+  "mapbox": {
+    "public_access_token": "pk.eyJ1Ijoia2FtYXRhcnlvIiwiYSI6ImNpenVmNnJ2MTAwMDQycXBwZmloeng0ZTQifQ.5oBaHAa2R9HZl_FJjPGHSQ",
+    ""
+  }
 }

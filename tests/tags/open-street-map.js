@@ -18,7 +18,7 @@ describe( 'open-street-map specs', function() {
     // create spied `require`
     window.require = function( name ) {
       if ( name === 'mapbox.js' ) {
-        return {
+        const mock = {
           mapbox : {
             map : function() { return {
               setView : function() {
@@ -31,6 +31,8 @@ describe( 'open-street-map specs', function() {
             return { addTo : function() {} }
           }
         }
+        spy.getAccessToken = function() { return mock.mapbox.accessToken }
+        return mock
       }
     }
 
@@ -52,6 +54,22 @@ describe( 'open-street-map specs', function() {
       zoom : 12
     } )
     expect( spy.mapPosition ).to.eql( [ [ 12, 123 ], 12 ] )
+  } )
+
+  it( 'should set default mapview', function() {
+    riot.mount( 'open-street-map', {
+      default: {
+        lat  : 23,
+        lng  : 134,
+        zoom : 14
+      }
+    } )
+    expect( spy.mapPosition ).to.eql( [ [ 23, 134 ], 14 ] )
+  } )
+
+  it( 'should set public access token', function() {
+    riot.mount( 'open-street-map', { public_access_token: 'abc' } )
+    expect( spy.getAccessToken() ).to.eql( 'abc' )
   } )
 
   it( 'should set marker', function() {

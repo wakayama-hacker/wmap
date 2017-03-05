@@ -17,13 +17,12 @@
     ].concat( ( opts.classes || [] ) ).join( ' ' )
 
     // parse map arguments
-    const lat   = opts.lat    || 0
-    const lng   = opts.lng    || 0
-    const zoom  = opts.zoom   || 10
-    const PUBLIC_ACCESS_TOKEN = 'pk.eyJ1Ijoia2FtYXRhcnlvIiwiYSI6ImNpenVmNnJ2MTAwMDQycXBwZmloeng0ZTQifQ.5oBaHAa2R9HZl_FJjPGHSQ'
+    const lat   = opts.lat  || ( opts.default && opts.default.lat )  || 0
+    const lng   = opts.lng  || ( opts.default && opts.default.lng )  || 0
+    const zoom  = opts.zoom || ( opts.default && opts.default.zoom ) || 10
 
     this.on( 'mount', function() {
-      L.mapbox.accessToken = PUBLIC_ACCESS_TOKEN
+      L.mapbox.accessToken = opts.public_access_token
       const map = L.mapbox.map( id, 'mapbox.streets' ).setView( [ lat, lng ], zoom )
       L.marker( [ lat, lng ] ).addTo( map )
     } )
