@@ -1,4 +1,10 @@
 {
   "main_title": "Wnew",
-  "menu_title": "Home"
+  "menu_title": "Home",
+  "contributors": [
+    {
+      "name": "whoami",
+      "whoami": "i am who am i"
+    }
+  ]
 }
