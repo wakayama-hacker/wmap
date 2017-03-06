@@ -37,7 +37,7 @@ describe( 'gulp-csv2json', () => {
             .pipe( assert.first( file => {
               // match [ { id: 0a1b2c3d4f5.., value: '串本'  } ]
               const json = JSON.parse( file.contents.toString() )
-              expect( json ).to.be.a.Array()
+              expect( json ).to.be.an( 'array' )
               expect( json[0].id ).to.match( HASH )
               expect( json[0].value ).to.be( '串本' )
             } ) )
@@ -101,7 +101,7 @@ describe( 'gulp-csv2json', () => {
             .pipe( assert.first( file => {
               // match [ { id: 0a1b2c.. , value: '串本' }, { id: 0a1b2c.. , value: '白浜' } ]
               const json = JSON.parse( file.contents.toString() )
-              expect( json ).to.be.a.Array()
+              expect( json ).to.be.an( 'array' )
               expect( json[0].id ).to.match( HASH )
               expect( json[0].value ).to.be( '串本' )
               expect( json[1].id ).to.match( HASH )
@@ -184,15 +184,15 @@ describe( 'gulp-csv2json', () => {
         it( 'should return menu array, firstly', done => {
           test( CSV1, CSV2 )
             .pipe( csv2json() )
-            .pipe( assert.first( isJSON( file => {
+            .pipe( assert.first( file => {
               // match [ { id: 0a1b2c.. , value: '串本' }, { id: 0a1b2c.. , value: '白浜' } ]
               const json = JSON.parse( file.contents.toString() )
-              expect( json ).to.be.a.Array()
+              expect( json ).to.be.an( 'array' )
               expect( json[0].id ).to.match( HASH )
               expect( json[0].value ).to.be( '串本' )
               expect( json[1].id ).to.match( HASH )
               expect( json[1].value ).to.be( '白浜' )
-            } ) ) )
+            } ) )
             .pipe( assert.end( done ) )
         } )
 
@@ -303,7 +303,7 @@ describe( 'gulp-csv2json', () => {
           .pipe( assert.first( file => {
             // match [ { id: 0a1b2c.. , value: 'value1' } ]
             const json = JSON.parse( file.contents.toString() )
-            expect( json ).to.be.a.Array()
+            expect( json ).to.be.an( 'array' )
             expect( json[0].id ).to.match( HASH )
             expect( json[0].value ).to.be( 'value1' )
           } ) )
@@ -319,7 +319,13 @@ describe( 'gulp-csv2json', () => {
         test( CSV )
           .pipe( csv2json() )
           .pipe( assert.length( 2 ) )
-          .pipe( assert.first( isJSON( [ { id: 0, value: 'value1' } ] ) ) )
+          .pipe( assert.first( file => {
+            // match [ { id: 0a1b2c.. , value: 'value1' } ]
+            const json = JSON.parse( file.contents.toString() )
+            expect( json ).to.be.an( 'array' )
+            expect( json[0].id ).to.match( HASH )
+            expect( json[0].value ).to.be( 'value1' )
+          } ) )
           .pipe( assert.second( hasName( HASHED_JSON ) ) )
           .pipe( assert.second( isJSON( expected ) ) )
           .pipe( assert.end( done ) )
