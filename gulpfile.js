@@ -13,6 +13,7 @@ const xlsx2csv    = require( './lib/gulp-wxlsx2csv' )
 const marked      = require( 'gulp-marked' )
 const replace     = require( 'gulp-replace' )
 const rename      = require( 'gulp-rename' )
+const rimraf      = require( 'rimraf' )
 
 gulp.task( 'md', () => {
   gulp.src( 'README.md' )
@@ -42,7 +43,11 @@ gulp.task( 'js', [ 'md' ], function ( cb ) {
   .on( 'end', cb )
 } )
 
-gulp.task( 'data', () => {
+gulp.task( 'clean', cb => {
+  rimraf( './json', cb )
+} )
+
+gulp.task( 'data', [ 'clean' ], () => {
 
   // merge streams of csv and xlsx
   streamqueue(
@@ -78,4 +83,10 @@ gulp.task( 'sass', () => {
     .pipe( gulp.dest( './css' ) )
 } )
 
-gulp.task( 'build', [ 'js', 'data','twitter_bootstrap', 'sass', 'fonts' ] )
+gulp.task( 'build', [
+  'js',
+  'data',
+  'twitter_bootstrap',
+  'sass',
+  'fonts'
+] )
