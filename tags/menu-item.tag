@@ -8,7 +8,7 @@
     this.items = opts.json
     this.click = function( e ) {
       const id = e.target.getAttribute( 'data-item' )
-      if ( id.match( /^[0-9]+$/ ) ) {
+      if ( id.match( /^[a-f0-9]+$/ ) ) {
         opts.request
           .get( 'json/' + id + '.json' )
           .set( 'Accept', 'application/json' )
