@@ -30,6 +30,22 @@ img
   margin: 0;
   overflow: hidden;
   z-index: 2;
+
+  .home-icon
+  {
+    border: 1px solid #eeeeee;
+    border-radius: 15px;
+    background-color: #ffffff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #555555;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .fixed-header .wrap

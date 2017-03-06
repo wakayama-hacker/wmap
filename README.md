@@ -8,7 +8,7 @@ This project "wnew" was started by members of IT community "[Wacker](http://wack
 
 http://wnew.wacker.io/
 
-This project is hotsted on GitHub at the URL below. 
+This project is hotsted on GitHub at the URL below.
 
 https://github.com/wakayama-hacker/wnew
 
@@ -76,7 +76,3 @@ $ npm run build
 ```
 
 まだカスタマイズ可能な項目は少ないですが、今後はテーマシステムを開発して、外観の変更も可能にしていく予定です。
-
-## ライセンス
-
-MIT

@@ -8,7 +8,6 @@ const L = require( 'leaflet' )
 
 const menu_item = require( '../tags/menu-item.tag' )
 const menu_header = require( '../tags/menu-header.tag' )
-const main_header = require( '../tags/main-header.tag' )
 const home_contents = require( '../tags/home-contents.tag' )
 // eslint-disable-next-line no-unused-vars
 const item_contents = require( '../tags/item-contents.tag' )
@@ -33,7 +32,6 @@ request
   .end( function( err, res ) {
     document.title = res.body.main_title
 
-    riot.mount( main_header, { title: res.body.main_title } )
     riot.mount( main_contents )
     riot.mount( home_contents )
     riot.mount( menu_header, { title: res.body.menu_title, slideout: slideout } )
@@ -55,7 +53,7 @@ request
       } )
   } )
 
-document.querySelector( '.home-icon' ).addEventListener( 'click', function() {
+document.querySelector( '.back-to-home' ).addEventListener( 'click', function() {
   slideout.close()
   riot.mount( main_contents, {} )
 }, false )
