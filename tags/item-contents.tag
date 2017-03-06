@@ -1,4 +1,4 @@
-<item-contents style="border: 1px solid #eeeeee;">
+<item-contents style="border: 1px solid #dedede;">
 
   <script type="es6">
     while ( this.root.firstChild ) {
