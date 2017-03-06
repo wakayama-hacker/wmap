@@ -14,7 +14,7 @@
     const lng = opts.data.lng
 
     if ( typeof L !== 'undefined' ) {
-      const map = L.map( div ).setView( [ lat, lng ], 16 )
+      const map = L.map( div ).setView( [ lat, lng ], 14 )
 
       L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
