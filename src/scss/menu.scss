@@ -1,7 +1,6 @@
 #menu
 {
   background-color: #f7f7f7;
-  background-image: url( ../img/cork-wallet.png );
   color: #555555;
   overflow: hidden;
   padding-bottom: 24px;
@@ -41,22 +40,5 @@
   {
     background-color: rgb( 85, 115, 187 );
     color: #ffffff;
-  }
-
-  .home-icon
-  {
-    position: fixed;
-    bottom: 8px;
-    right: 8px;
-    border: 1px solid #eeeeee;
-    border-radius: 25px;
-    background-color: #ffffff;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    font-size: 24px;
-    box-shadow: 1px 1px 1px 0 rgba( 0, 0, 0, 0.5 );
-    cursor: pointer;
   }
 }

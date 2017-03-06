@@ -62,12 +62,20 @@ gulp.task( 'data', [ 'clean' ], () => {
     .pipe( gulp.dest( './json' ) )
 } )
 
-gulp.task( 'twitter_bootstrap', () => {
+gulp.task( 'css', () => {
   gulp.src( [
+    'node_modules/leaflet/dist/leaflet.css',
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'node_modules/bootstrap/dist/css/bootstrap.min.css.map',
   ] )
 		.pipe( gulp.dest( 'css' ) )
+} )
+
+gulp.task( 'css-images', () => {
+  gulp.src( [
+    'node_modules/leaflet/dist/images/*',
+  ] )
+		.pipe( gulp.dest( 'css/images/' ) )
 } )
 
 gulp.task( 'fonts', () => {
@@ -86,7 +94,8 @@ gulp.task( 'sass', () => {
 gulp.task( 'build', [
   'js',
   'data',
-  'twitter_bootstrap',
+  'css',
+  'css-images',
   'sass',
   'fonts'
 ] )

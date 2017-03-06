@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/leaflet.css" />
     <link rel="stylesheet" href="css/style.css">
     <title>Wnew</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
@@ -12,13 +12,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   </head>
   <body>
-    <header class="fixed-header"><main-header></main-header></header>
+    <header class="fixed-header">
+      <div class="wrap">
+        <div class="home-icon back-to-home"><i class="glyphicon glyphicon-home"></i></div>
+        <div><i class="glyphicon glyphicon-menu-hamburger toggle"></i></div>
+      </div>
+    </header>
 
     <nav id="menu">
       <menu-header class="header"></menu-header>
       <menu-item class="menu-item"></menu-item>
       <menu-footer class="footer"></menu-footer>
-      <div class="home-icon"><i class="glyphicon glyphicon-home"></i></div>
     </nav>
 
     <main id="panel">

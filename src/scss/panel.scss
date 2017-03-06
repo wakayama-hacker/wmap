@@ -1,10 +1,10 @@
 #panel
 {
   box-shadow: 0 0 10px 0 rgba( 0, 0, 0, 0.5 );
-  background-image: url( ../img/greyzz.png );
   color: #555555;
   padding-bottom: 24px;
   overflow: hidden;
+  background-color: #f7f7f7;
 
   .main-contents
   {
@@ -14,10 +14,12 @@
 
     .item
     {
-      border-bottom: 1px solid #eeeeee;
-      box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 1 );
-      margin: 0;
+      border: 1px solid #cccccc;
+      border-top: 7px solid #cccccc;
+      box-shadow: 0 0 2px 0 rgba( 0, 0, 0, 0.1 );
+      margin: 18px;
       padding: 0;
+      background-color: #ffffff;
 
       .wrap
       {
@@ -52,12 +54,20 @@
     {
       margin: 0;
       padding: 0;
+      font-size: 18px;
+    }
+
+    .item-description
+    {
+      font-size: 14px;
+      margin: 1em 0;
     }
 
     .item-toggle
     {
-      font-size: 24px;
+      font-size: 18px;
       margin-left: 1em;
+      color: #cccccc;
     }
 
     .toggle
