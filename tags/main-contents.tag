@@ -40,6 +40,8 @@
         )
       }
     }.bind( this )
+
+    window.scrollTo( 0, 0 ) ;
   </script>
 
 </main-contents>
