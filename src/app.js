@@ -44,6 +44,7 @@ request
 
     request
       .get( 'json/menu.json' )
+      .query( { v: new Date().getTime() } )
       .set( 'Accept', 'application/json' )
       .end( function( err, res ) {
         riot.mount( menu_item, {

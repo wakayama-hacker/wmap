@@ -1,6 +1,7 @@
 $horizontal-padding: 18px;
 $main-menu-height: 50px;
 $app-status-bar-height: 20px;
+$header-color: rgb( 66, 70, 73 );
 
 body {
   width: 100%;
@@ -18,11 +19,10 @@ img
 
 .fixed-header
 {
-  background-color: rgb( 66, 70, 73 );
+  background-color: $header-color;
   position: fixed;
   width: 100%;
   backface-visibility: hidden;
-  z-index: 2;
   top: 0px;
   left: 0px;
   height: $main-menu-height;
