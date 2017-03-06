@@ -1,9 +1,10 @@
 {
   "main_title": "Wnew",
   "menu_title": "Home",
-  "contributors": [
+  "authors": [
     {
       "name": "whoami",
+      "link": "http://example.com/whoami",
       "whoami": "i am who am i"
     }
   ]

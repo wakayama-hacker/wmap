@@ -29,15 +29,16 @@ request
   .end( function( err, res ) {
     document.title = res.body.main_title
 
-    // process contributors value
-    const contributors = res.body.contributors.map( function( contributor ) {
+    // process authors value
+    const authors = res.body.authors.map( function( author ) {
       return {
-        title   : contributor.name,
-        content : contributor.whoami,
+        title   : author.name,
+        link    : author.link,
+        content : author.whoami,
       }
     } )
     riot.mount( menu_header, { title: res.body.menu_title, slideout: slideout } )
-    riot.mount( menu_footer, { title: res.body.main_title + 'について', data: contributors, slideout: slideout } )
+    riot.mount( menu_footer, { title: res.body.main_title + 'を作った人たち', data: authors, slideout: slideout } )
     riot.mount( main_header, { title: res.body.main_title } )
 
     document.querySelector( '.toggle' ).addEventListener( 'click', function() {
