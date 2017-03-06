@@ -1,5 +1,5 @@
 <menu-item>
-  <div each={ items } class="item" data-item={ id } onclick={ click }>
+  <div each={ items } class="item" data-item={ id } onclick={ parent.click }>
     <div>{ value }</div>
     <div><i class="glyphicon glyphicon-menu-right"></i></div>
   </div>
@@ -13,8 +13,8 @@
           .get( 'json/' + id + '.json' )
           .set( 'Accept', 'application/json' )
           .end( function( err, res ) {
-            riot.mount( 'main-contents', { data: res.body } )
             opts.slideout.close()
+            riot.mount( 'main-contents', { data: res.body } )
           } )
       }
     }.bind( this )

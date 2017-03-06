@@ -9,7 +9,6 @@ module.exports = function( config ) {
       'karma-riot'
     ],
     files: [
-      'node_modules/jquery/dist/jquery.min.js',
       'node_modules/expect.js/index.js',
       'tags/*.tag',
       'tests/**/*.js',
@@ -22,6 +21,10 @@ module.exports = function( config ) {
     },
     browsers: [ 'PhantomJS' ],
     reporters: [ 'mocha' ],
-    singleRun: true
+    singleRun: true,
+    logLevel: config.LOG_DEBUG,
+    client: {
+      captureConsole: true
+    },
   } )
 }
