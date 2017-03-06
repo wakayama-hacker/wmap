@@ -23,6 +23,39 @@
       {
         margin: 2em $horizontal-padding;
       }
+
+      .item-contents
+      {
+        display: none;
+      }
+    }
+
+    .item.active .item-contents
+    {
+      display: block;
+    }
+
+    .item-header
+    {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .item-title
+    {
+      margin: 0;
+      padding: 0;
+    }
+
+    .item-toggle
+    {
+      font-size: 24px;
+      margin-left: 1em;
+    }
+
+    .toggle
+    {
+      cursor: pointer;
     }
   }
   .home-contents

@@ -1,16 +1,43 @@
 <main-contents>
-  <div class="item" each={ data } show={ data }>
+
+  <section class="item" each={ data } show={ data }>
     <div class="wrap">
-      <h2>{ title }</h2>
-      <p>{ content }</p>
-      <iframe if={ lat && lng } width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-        src="http://www.openlinkmap.org/small.php?lat={ lat }&lon={ lng }&zoom=8" style="border: 1px solid black"></iframe>
+      <header class="item-header">
+        <h2 class="item-title">{ title }</h2>
+        <div if={ !notoggle } class="item-toggle"><i class="glyphicon glyphicon-menu-down toggle" onclick={ parent.click }></i></div>
+      </header>
+      <p class="item-description">{ content }</p>
+      <div class="item-contents"></div>
     </div>
-  </div>
+  </section>
+
   <home-contents class="home-contents" hide={ data }></home-contents>
+
   <script type="es6">
+
     if ( opts.data ) {
       this.data = opts.data
     }
+    // some contents donot need toggle section
+    this.notoggle = opts.notoggle
+
+    this.click = function( e ) {
+      const item = e.item
+      const index = this.data.indexOf( item ) + 1
+      const selector = '.main-contents .item:nth-child(' + index + ')'
+
+      const items = document.querySelectorAll( '.main-contents .item.active' )
+      for ( var i = 0; i < items.length; i++ ) {
+        items[i].classList.remove( 'active' )
+      }
+
+      document.querySelector( selector ).classList.add( 'active' )
+      riot.mount(
+        document.querySelector( selector + ' .item-contents' ),
+        'item-contents',
+        { data: item }
+      )
+    }.bind( this )
   </script>
+
 </main-contents>

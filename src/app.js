@@ -3,13 +3,17 @@
 const riot = require( 'riot' )
 const Slideout =require( 'slideout' )
 const request = require( 'superagent' )
+// eslint-disable-next-line no-unused-vars
+const L = require( 'leaflet' )
 
 const menu_item = require( '../tags/menu-item.tag' )
 const menu_header = require( '../tags/menu-header.tag' )
 const menu_footer = require( '../tags/menu-footer.tag' )
 const main_header = require( '../tags/main-header.tag' )
-const main_contents = require( '../tags/main-contents.tag' )
 const home_contents = require( '../tags/home-contents.tag' )
+// eslint-disable-next-line no-unused-vars
+const item_contents = require( '../tags/item-contents.tag' )
+const main_contents = require( '../tags/main-contents.tag' )
 
 const slideout = new Slideout( {
   'panel': document.getElementById( 'panel' ),
@@ -37,16 +41,15 @@ request
         content : author.whoami,
       }
     } )
+    riot.mount( main_header, { title: res.body.main_title } )
+    riot.mount( main_contents )
+    riot.mount( home_contents )
     riot.mount( menu_header, { title: res.body.menu_title, slideout: slideout } )
     riot.mount( menu_footer, { title: res.body.main_title + 'を作った人たち', data: authors, slideout: slideout } )
-    riot.mount( main_header, { title: res.body.main_title } )
 
     document.querySelector( '.toggle' ).addEventListener( 'click', function() {
       slideout.toggle()
     } )
-
-    riot.mount( main_contents )
-    riot.mount( home_contents )
 
     request
       .get( 'json/menu.json' )
@@ -63,4 +66,4 @@ request
 document.querySelector( '.home-icon' ).addEventListener( 'click', function() {
   slideout.close()
   riot.mount( main_contents, {} )
-} )
+}, false )

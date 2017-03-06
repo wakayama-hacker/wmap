@@ -6,8 +6,11 @@
 
   <script type="es6">
     this.title = opts.title
-    this.click = function( e ) {
-      riot.mount( 'main-contents', { data: opts.data } )
+    this.click = function(  ) {
+      riot.mount( 'main-contents', {
+        data     : opts.data,
+        notoggle : true,
+      } )
       opts.slideout.close()
     }.bind( this )
   </script>

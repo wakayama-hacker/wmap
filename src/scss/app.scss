@@ -1,5 +1,6 @@
 $horizontal-padding: 18px;
 $main-menu-height: 50px;
+$app-status-bar-height: 20px;
 
 body {
   width: 100%;
@@ -24,6 +25,10 @@ img
   z-index: 2;
   top: 0px;
   left: 0px;
+  height: $main-menu-height;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .fixed-header .wrap
@@ -59,11 +64,10 @@ img
 
 .web-app
 {
-  $app-status-bar-height: 20px;
-
   .fixed-header
   {
     padding-top: $app-status-bar-height;
+    height: $app-status-bar-height + $main-menu-height;
   }
 
   #menu,
