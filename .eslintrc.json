@@ -29,7 +29,8 @@
     "chai": true,
     "sinon": true,
     "riot": true,
-    "opts": true
+    "opts": true,
+    "L": true
   },
   "plugins": ["riot"]
 }

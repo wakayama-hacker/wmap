@@ -3,12 +3,14 @@
 const riot = require( 'riot' )
 const Slideout =require( 'slideout' )
 const request = require( 'superagent' )
+// eslint-disable-next-line no-unused-vars
 const L = require( 'leaflet' )
 
 const menu_item = require( '../tags/menu-item.tag' )
 const menu_header = require( '../tags/menu-header.tag' )
 const main_header = require( '../tags/main-header.tag' )
 const home_contents = require( '../tags/home-contents.tag' )
+// eslint-disable-next-line no-unused-vars
 const item_contents = require( '../tags/item-contents.tag' )
 const main_contents = require( '../tags/main-contents.tag' )
 
