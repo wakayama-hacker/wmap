@@ -3,7 +3,7 @@
     <div class="wrap">
       <h2>{ title }</h2>
       <p>{ content }</p>
-      <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+      <iframe if={ lat && lng } width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
         src="http://www.openlinkmap.org/small.php?lat={ lat }&lon={ lng }&zoom=8" style="border: 1px solid black"></iframe>
     </div>
   </div>
