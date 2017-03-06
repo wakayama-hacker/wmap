@@ -3,7 +3,7 @@
   <section class="item" each={ data } show={ data }>
     <div class="wrap">
       <header class="item-header">
-        <h2 class="item-title">{ title }</h2>
+        <h2 class="item-title">{ title }<a if={ link } class="item-link" href={ link }><i class="glyphicon glyphicon-link"></a></i></h2>
         <div if={ !notoggle } class="item-toggle"><i class="glyphicon glyphicon-menu-down toggle" onclick={ parent.click }></i></div>
       </header>
       <p class="item-description">{ content }</p>
