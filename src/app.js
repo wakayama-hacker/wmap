@@ -20,7 +20,8 @@ const slideout = new Slideout( {
   'menu': document.getElementById( 'menu' ),
   'padding': 256,
   'tolerance': 70,
-  'side': 'right'
+  'side': 'right',
+  'touch': false
 } )
 
 if ( window.navigator.standalone ) {

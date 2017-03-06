@@ -26,18 +26,24 @@
       const index = this.data.indexOf( item ) + 1
       const selector = '.main-contents .item:nth-child(' + index + ')'
 
-      const items = document.querySelectorAll( '.main-contents .item.active' )
-      for ( var i = 0; i < items.length; i++ ) {
-        items[i].classList.remove( 'active' )
-      }
+      if ( document.querySelector( selector ).classList.contains( 'active' ) ) {
+        document.querySelector( selector ).classList.remove( 'active' )
+      } else {
+        const items = document.querySelectorAll( '.main-contents .item.active' )
+        for ( var i = 0; i < items.length; i++ ) {
+          items[i].classList.remove( 'active' )
+        }
 
-      document.querySelector( selector ).classList.add( 'active' )
-      riot.mount(
-        document.querySelector( selector + ' .item-contents' ),
-        'item-contents',
-        { data: item }
-      )
+        document.querySelector( selector ).classList.add( 'active' )
+        riot.mount(
+          document.querySelector( selector + ' .item-contents' ),
+          'item-contents',
+          { data: item }
+        )
+      }
     }.bind( this )
+
+    window.scrollTo( 0, 0 )
   </script>
 
 </main-contents>
