@@ -19,6 +19,19 @@
     color: #ffffff;
   }
 
+  .footer
+  {
+    color: #555555;
+    border-top: 1px solid #bbbbbb;
+    box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 0.7 );
+  }
+
+  .footer:hover
+  {
+    background-color: rgb( 85, 115, 187 );
+    color: #ffffff;
+  }
+
   .menu-item
   {
     display: block;
@@ -41,4 +54,5 @@
     background-color: rgb( 85, 115, 187 );
     color: #ffffff;
   }
+
 }

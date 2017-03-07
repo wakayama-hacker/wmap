@@ -75,4 +75,55 @@
       margin: 0 $horizontal-padding;
     }
   }
+
+  .acknowledgements
+  {
+    .authors
+    {
+      .wrap
+      {
+        margin: 0 $horizontal-padding;
+      }
+      .author-items
+      {
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+      }
+      .author-item
+      {
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        width: 200px;
+        height: 250px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        box-shadow: 0 0 2px 0 rgba( 0, 0, 0, 0.1 );
+        margin: 9px;
+        padding: 18px 12px 12px;
+
+        .author-title
+        {
+          margin: 0;
+        }
+
+        .link-aside
+        {
+          color: inherit;
+          font-size: .75em;
+          margin-left: 12px;
+        }
+      }
+
+      .avatar
+      {
+        width: 96px;
+        border-radius: 48px;
+      }
+    }
+  }
 }

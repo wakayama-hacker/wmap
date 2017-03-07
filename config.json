@@ -1,3 +1,15 @@
 {
-  "main_title": "Wnew"
+  "main_title": "Wnew",
+  "authors": [
+    {
+      "name": "whoami",
+      "whoami": "i am who am i"
+    },
+    {
+      "name": "Wacker",
+      "link": "https://github.com/wakayama-hacker",
+      "github": "wakayama-hacker",
+      "whoami": "和歌山のITエンジニアコミュニティ"
+    }
+  ]
 }

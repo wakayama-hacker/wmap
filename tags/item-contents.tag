@@ -5,22 +5,24 @@
       this.root.removeChild( this.root.firstChild )
     }
 
-    const div = document.createElement( 'div' )
-    this.root.appendChild( div )
-    div.style.width = '100%'
-    div.style.height = '300px'
-
     const lat = opts.data.lat
     const lng = opts.data.lng
+    if ( typeof lat !== 'undefined' && typeof lng !== 'undefined' ) {
 
-    if ( typeof L !== 'undefined' ) {
-      const map = L.map( div ).setView( [ lat, lng ], 14 )
+      const div = document.createElement( 'div' )
+      this.root.appendChild( div )
+      div.style.width = '100%'
+      div.style.height = '300px'
 
-      L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      } ).addTo( map )
+      if ( typeof L !== 'undefined' ) {
+        const map = L.map( div ).setView( [ lat, lng ], 14 )
 
-      L.marker( [ lat, lng ] ).addTo( map )
+        L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        } ).addTo( map )
+
+        L.marker( [ lat, lng ] ).addTo( map )
+      }
     }
   </script>
 </item-contents>
