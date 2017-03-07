@@ -1,18 +1,4 @@
-<menu-footer>
-  <div class="item" data-item={ id } onclick={ click }>
-    <div>{ title }</div>
-    <div><i class="glyphicon glyphicon-menu-right"></i></div>
-  </div>
+<menu-footer class="menu-footer">
 
-  <script type="es6">
-    this.title = opts.title
-    this.click = function(  ) {
-      riot.mount( 'main-contents', {
-        data     : opts.data,
-        notoggle : true,
-      } )
-      opts.slideout.close()
-    }.bind( this )
-  </script>
 
 </menu-footer>

@@ -10,6 +10,7 @@ const menu_item = require( '../tags/menu-item.tag' )
 const menu_header = require( '../tags/menu-header.tag' )
 const menu_footer = require( '../tags/menu-footer.tag' )
 const home_contents = require( '../tags/home-contents.tag' )
+const acknowledgements = require( '../tags/acknowledgements.tag' )
 // eslint-disable-next-line no-unused-vars
 const item_contents = require( '../tags/item-contents.tag' )
 const main_contents = require( '../tags/main-contents.tag' )
@@ -33,18 +34,11 @@ request
   .end( function( err, res ) {
     document.title = res.body.main_title
 
-    // process authors value
-    const authors = res.body.authors.map( function( author ) {
-      return {
-        title   : author.name,
-        link    : author.link,
-        content : author.whoami,
-      }
-    } )
     riot.mount( main_contents )
     riot.mount( home_contents )
+    riot.mount( acknowledgements, { title: res.body.main_title + 'を作った人たち' , authors: res.body.authors } )
     riot.mount( menu_header, { title: res.body.menu_title, slideout: slideout } )
-    riot.mount( menu_footer, { title: res.body.main_title + 'を作った人たち', data: authors, slideout: slideout } )
+    riot.mount( menu_footer, { slideout: slideout } )
 
     document.querySelector( '.toggle' ).addEventListener( 'click', function() {
       slideout.toggle()

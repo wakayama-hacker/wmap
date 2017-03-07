@@ -26,13 +26,6 @@
         margin: 2em $horizontal-padding;
       }
 
-      .item-link
-      {
-        color: inherit;
-        font-size: .75em;
-        margin-left: 12px;
-      }
-
       .item-contents
       {
         display: none;
@@ -80,6 +73,30 @@
     .wrap
     {
       margin: 0 $horizontal-padding;
+    }
+  }
+
+  .acknowledgements
+  {
+    .authors
+    {
+      .wrap
+      {
+        margin: 0 $horizontal-padding;
+      }
+
+      .link-aside
+      {
+        color: inherit;
+        font-size: .75em;
+        margin-left: 12px;
+      }
+
+      .avatar
+      {
+        width: 96px;
+        border-radius: 48px;
+      }
     }
   }
 }

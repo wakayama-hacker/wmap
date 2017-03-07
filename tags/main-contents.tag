@@ -3,8 +3,8 @@
   <section class="item" each={ data } show={ data }>
     <div class="wrap">
       <header class="item-header">
-        <h2 class="item-title">{ title }<a if={ link } class="item-link" href={ link }><i class="glyphicon glyphicon-link"></a></i></h2>
-        <div if={ !notoggle } class="item-toggle"><i class="glyphicon glyphicon-menu-down toggle" onclick={ parent.click }></i></div>
+        <h2 class="item-title">{ title }<a if={ link } class="link-aside" href={ link }><i class="glyphicon glyphicon-link"></a></i></h2>
+        <div class="item-toggle"><i class="glyphicon glyphicon-menu-down toggle" onclick={ parent.click }></i></div>
       </header>
       <p class="item-description">{ content }</p>
       <div class="item-contents"></div>
@@ -12,14 +12,18 @@
   </section>
 
   <home-contents class="home-contents" hide={ data }></home-contents>
+  <hr hide={data} />
+  <acknowledgements class="acknowledgements" hide={ data }></acknowledgements>
 
   <script type="es6">
 
     if ( opts.data ) {
       this.data = opts.data
     }
-    // some contents donot need toggle section
-    this.notoggle = opts.notoggle
+
+    if( opts.authors ) {
+      this.authors = opts.authors
+    }
 
     this.click = function( e ) {
       const item = e.item
