@@ -14,8 +14,8 @@
       div.style.width = '100%'
       div.style.height = '300px'
 
-    if ( typeof L !== 'undefined' ) {
-      const map = L.map( div ).setView( [ lat, lng ], 14 )
+      if ( typeof L !== 'undefined' ) {
+        const map = L.map( div ).setView( [ lat, lng ], 14 )
 
         L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
