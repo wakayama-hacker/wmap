@@ -20,11 +20,8 @@ global.slideout = new Slideout( {
 const menu_item = require( '../tags/menu-item.tag' )
 const menu_header = require( '../tags/menu-header.tag' )
 const home_contents = require( '../tags/home-contents.tag' )
-// eslint-disable-next-line no-unused-vars
-const item_contents = require( '../tags/item-contents.tag' )
 const main_contents = require( '../tags/main-contents.tag' )
-// eslint-disable-next-line no-unused-vars
-const osm = require( '../tags/osm.tag' )
+const map = require( '../tags/map.tag' )
 
 if ( window.navigator.standalone ) {
   document.querySelector( 'body' ).classList.add( 'web-app' )
@@ -101,4 +98,14 @@ router( 'data', function( div, id ) {
         riot.mount( div, main_contents, { data: res.body } )
       } )
   }
+} )
+
+router( 'map', function( div, id ) {
+  const latlng = id.split( ',' )
+  const lat = latlng[0]
+  const lng = latlng[1]
+  riot.mount( div, map, {
+    lat: lat,
+    lng: lng
+  } )
 } )
