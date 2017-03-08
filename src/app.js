@@ -1,6 +1,7 @@
 'use strict'
 
 global.config = require( './default.json' )
+global.resizeTimer
 
 global.riot = require( 'riot' )
 global.route = require( 'riot-route' )
@@ -24,7 +25,24 @@ const main_contents = require( '../tags/main-contents.tag' )
 const map = require( '../tags/map.tag' )
 
 if ( window.navigator.standalone ) {
-  document.querySelector( 'body' ).classList.add( 'web-app' )
+  if ( window.screen.height < window.screen.width ) {
+    document.querySelector( 'body' ).classList.remove( 'web-app' )
+  } else {
+    document.querySelector( 'body' ).classList.add( 'web-app' )
+  }
+
+  window.addEventListener( 'resize', function() {
+    if ( global.resizeTimer !== false ) {
+      clearTimeout( global.resizeTimer )
+    }
+    global.resizeTimer = setTimeout( function() {
+      if ( window.screen.height < window.screen.width ) {
+        document.querySelector( 'body' ).classList.remove( 'web-app' )
+      } else {
+        document.querySelector( 'body' ).classList.add( 'web-app' )
+      }
+    }, Math.floor( 1000 / 60 * 10 ) )
+  } )
 }
 
 document.title = config.main_title

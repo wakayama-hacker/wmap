@@ -27,7 +27,6 @@
       window.history.back()
     }.bind( this )
 
-    global.resizeTimer
     window.addEventListener( 'resize', function() {
       if ( global.resizeTimer !== false ) {
         clearTimeout( global.resizeTimer )
