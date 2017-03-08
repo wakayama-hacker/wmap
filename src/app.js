@@ -32,16 +32,11 @@ if ( window.navigator.standalone ) {
   }
 
   window.addEventListener( 'resize', function() {
-    if ( global.resizeTimer !== false ) {
-      clearTimeout( global.resizeTimer )
+    if ( document.body.clientHeight < document.body.clientWidth ) {
+      document.querySelector( 'body' ).classList.remove( 'web-app' )
+    } else {
+      document.querySelector( 'body' ).classList.add( 'web-app' )
     }
-    global.resizeTimer = setTimeout( function() {
-      if ( document.body.clientHeight < document.body.clientWidth ) {
-        document.querySelector( 'body' ).classList.remove( 'web-app' )
-      } else {
-        document.querySelector( 'body' ).classList.add( 'web-app' )
-      }
-    }, Math.floor( 1000 / 60 * 10 ) )
   } )
 }
 
