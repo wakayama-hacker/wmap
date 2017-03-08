@@ -62,14 +62,14 @@ route( function( page, id ) {
     return
   }
 
-  var parent = document.querySelector( '#panel' )
+  const parent = document.querySelector( '#panel' )
   while ( parent.firstChild ) {
     parent.removeChild( parent.firstChild )
   }
-  var div = document.createElement( 'div' )
+  const div = document.createElement( 'div' )
   parent.append( div )
 
-  var event = new CustomEvent( 'router-' + page, { 'detail': {
+  const event = new CustomEvent( 'router-' + page, { 'detail': {
     div: div,
     id: id
   } } )
