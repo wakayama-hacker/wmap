@@ -84,7 +84,7 @@ route( function( page, id ) {
     parent.removeChild( parent.firstChild )
   }
   const div = document.createElement( 'div' )
-  parent.append( div )
+  parent.appendChild( div )
 
   document.body.classList.remove( 'fixed' ) // for map
 
