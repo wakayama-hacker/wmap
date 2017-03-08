@@ -57,31 +57,46 @@ if ( ! location.hash ) {
   route( location.hash.replace( '#', '/' ) )
 }
 
-route( 'data/*', function( id ) {
-  if ( id.match( /^[a-f0-9]{32}$/ ) ) {
-    request
-      .get( config.endpoint + '/' + id + '.json' )
-      .set( 'Accept', 'application/json' )
-      .end( function( err, res ) {
-        var parent = document.querySelector( '#panel' )
-        while ( parent.firstChild ) {
-          parent.removeChild( parent.firstChild )
-        }
-        var div = document.createElement( 'div' )
-        parent.append( div )
-        riot.mount( div, main_contents, { data: res.body } )
-      } )
+route( function( page, id ) {
+  if ( ! page ) {
+    return
   }
-} )
 
-route( 'home', function() {
   var parent = document.querySelector( '#panel' )
   while ( parent.firstChild ) {
     parent.removeChild( parent.firstChild )
   }
   var div = document.createElement( 'div' )
   parent.append( div )
-  riot.mount( div, home_contents )
+
+  var event = new CustomEvent( 'router-' + page, { 'detail': {
+    div: div,
+    id: id
+  } } )
+  document.dispatchEvent( event )
 } )
 
 route.start( true )
+
+const router = function( page, callback ) {
+  document.addEventListener( 'router-' + page, function( e ) {
+    const div = e.detail.div
+    const id = e.detail.id
+    callback( div, id )
+  }, false )
+}
+
+router( 'home', function( div ) {
+  riot.mount( div, home_contents )
+} );
+
+router( 'data', function( div, id ) {
+  if ( id.match( /^[a-f0-9]{32}$/ ) ) {
+    request
+      .get( config.endpoint + '/' + id + '.json' )
+      .set( 'Accept', 'application/json' )
+      .end( function( err, res ) {
+        riot.mount( div, main_contents, { data: res.body } )
+      } )
+  }
+} );
