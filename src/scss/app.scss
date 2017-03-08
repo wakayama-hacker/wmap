@@ -15,6 +15,7 @@ body
 body.fixed
 {
   overflow: hidden;
+  position: fixed;
 }
 
 img
@@ -85,6 +86,7 @@ img
 #panel
 {
   margin-top: $main-menu-height;
+  box-sizing: border-box;
 }
 
 .web-app

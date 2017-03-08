@@ -25,7 +25,7 @@ const main_contents = require( '../tags/main-contents.tag' )
 const map = require( '../tags/map.tag' )
 
 if ( window.navigator.standalone ) {
-  if ( window.screen.height < window.screen.width ) {
+  if ( document.body.clientHeight < document.body.clientWidth ) {
     document.querySelector( 'body' ).classList.remove( 'web-app' )
   } else {
     document.querySelector( 'body' ).classList.add( 'web-app' )
@@ -36,7 +36,7 @@ if ( window.navigator.standalone ) {
       clearTimeout( global.resizeTimer )
     }
     global.resizeTimer = setTimeout( function() {
-      if ( window.screen.height < window.screen.width ) {
+      if ( document.body.clientHeight < document.body.clientWidth ) {
         document.querySelector( 'body' ).classList.remove( 'web-app' )
       } else {
         document.querySelector( 'body' ).classList.add( 'web-app' )
@@ -86,7 +86,9 @@ route( function( page, id ) {
   const div = document.createElement( 'div' )
   parent.appendChild( div )
 
-  document.body.classList.remove( 'fixed' ) // for map
+  // to ignore scroll when map is showing
+  document.body.classList.remove( 'fixed' )
+  document.querySelector( '#panel' ).style.height = 'auto'
 
   const event = new CustomEvent( 'router-' + page, { 'detail': {
     div: div,

@@ -4,12 +4,13 @@
     const div = document.createElement( 'div' )
     this.root.appendChild( div )
     div.style.width = '100%'
+    document.querySelector( '#panel' ).style.height = '100%'
+    document.body.classList.add( 'fixed' )
     const map = L.map( div )
 
     const show_map = function() {
       const h = document.body.clientHeight - document.querySelector( '.fixed-header' ).clientHeight
       div.style.height = h + 'px'
-      document.body.classList.add( 'fixed' )
 
       const lat = opts.lat
       const lng = opts.lng
