@@ -1,4 +1,4 @@
-# Wnew
+# Wmap
 
 [![Build Status](https://travis-ci.org/wakayama-hacker/wmap.svg?branch=master)](https://travis-ci.org/wakayama-hacker/wmap)
 
