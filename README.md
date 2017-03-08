@@ -7,6 +7,8 @@
 * http://wmap.wacker.io/
 * https://github.com/wakayama-hacker/wmap
 
+![](https://www.evernote.com/l/ABUTItogn8FPfZuwhoTbFNnGk_l9L9oPxewB/image.png)
+
 ## このプロジェクトの特徴
 
 * `data/` ディレクトリ内に CSV や Excel ファイルを設置して `npm` コマンドを実行するだけで、それらのデータが JSON API に変換されモバイルアプリ上に表示されます。
