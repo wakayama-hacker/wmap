@@ -4,7 +4,8 @@
   color: #555555;
   overflow: hidden;
   padding-bottom: 24px;
-  box-shadow: 1px 1px 10px 0 rgba( 0, 0, 0, 0.5 ) inset;
+  border-left: 1px solid #bbbbbb;
+  box-shadow: 1px 1px 5px 0 rgba( 0, 0, 0, 0.1 ) inset;
 
   .header
   {
@@ -31,7 +32,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px $horizontal-padding;
-    border-bottom: 1px solid #bbbbbb;
+    border-bottom: 1px solid #cccccc;
     box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 0.7 );
     cursor: pointer;
   }
