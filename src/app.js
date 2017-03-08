@@ -23,6 +23,7 @@ const home_contents = require( '../tags/home-contents.tag' )
 // eslint-disable-next-line no-unused-vars
 const item_contents = require( '../tags/item-contents.tag' )
 const main_contents = require( '../tags/main-contents.tag' )
+// eslint-disable-next-line no-unused-vars
 const osm = require( '../tags/osm.tag' )
 
 if ( window.navigator.standalone ) {
