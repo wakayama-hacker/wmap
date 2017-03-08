@@ -68,6 +68,8 @@ route( function( page, id ) {
   const div = document.createElement( 'div' )
   parent.append( div )
 
+  document.body.classList.remove( 'fixed' ) // for map
+
   const event = new CustomEvent( 'router-' + page, { 'detail': {
     div: div,
     id: id

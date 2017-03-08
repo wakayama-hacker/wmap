@@ -4,9 +4,9 @@
     const div = document.createElement( 'div' )
     this.root.appendChild( div )
     div.style.width = '100%'
-    console.log( document.querySelector( '.fixed-header' ).clientHeight )
     const h = document.querySelector( '#panel' ).clientHeight - document.querySelector( '.fixed-header' ).clientHeight
     div.style.height = h + 'px'
+    document.body.classList.add( 'fixed' )
 
     const lat = opts.lat
     const lng = opts.lng
