@@ -20,8 +20,6 @@
     this.click = function( e ) {
       route( 'map/' + e.target.dataset.lat + ',' + e.target.dataset.lng )
     }.bind( this )
-
-    window.scrollTo( 0, 0 )
   </script>
 
 </main-contents>

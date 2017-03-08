@@ -73,6 +73,8 @@ route( function( page, id ) {
     id: id
   } } )
   document.dispatchEvent( event )
+
+  window.scrollTo( 0, 0 )
 } )
 
 route.start( true )
