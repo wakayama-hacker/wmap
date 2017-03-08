@@ -56,7 +56,7 @@ img
   align-items: center;
   color: #ffffff;
   margin: 0;
-  padding: 0 $horizontal-padding;
+  padding: 0 10px;
   height: $main-menu-height;
   overflow: hidden;
 
@@ -70,6 +70,7 @@ img
   .toggle
   {
     cursor: pointer;
+    font-size: 24px;
   }
 }
 
