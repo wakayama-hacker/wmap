@@ -58,19 +58,30 @@ if ( ! location.hash ) {
 }
 
 route( 'data/*', function( id ) {
-  console.log(id)
   if ( id.match( /^[a-f0-9]{32}$/ ) ) {
     request
       .get( config.endpoint + '/' + id + '.json' )
       .set( 'Accept', 'application/json' )
       .end( function( err, res ) {
-        riot.mount( '#panel > .app', main_contents, { data: res.body } )
+        var parent = document.querySelector( '#panel' )
+        while ( parent.firstChild ) {
+          parent.removeChild( parent.firstChild )
+        }
+        var div = document.createElement( 'div' )
+        parent.append( div )
+        riot.mount( div, main_contents, { data: res.body } )
       } )
   }
 } )
 
 route( 'home', function() {
-  riot.mount( '#panel > .app', home_contents )
+  var parent = document.querySelector( '#panel' )
+  while ( parent.firstChild ) {
+    parent.removeChild( parent.firstChild )
+  }
+  var div = document.createElement( 'div' )
+  parent.append( div )
+  riot.mount( div, home_contents )
 } )
 
 route.start( true )
