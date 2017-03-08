@@ -29,8 +29,12 @@
     "chai": true,
     "sinon": true,
     "riot": true,
+    "route": true,
     "opts": true,
-    "L": true
+    "L": true,
+    "config": true,
+    "request": true,
+    "slideout": true
   },
   "plugins": ["riot"]
 }

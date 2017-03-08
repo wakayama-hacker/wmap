@@ -1,6 +1,6 @@
 <main-contents>
 
-  <section class="item" each={ data } show={ data }>
+  <section class="item" each={ data }>
     <div class="wrap">
       <header class="item-header">
         <h2 class="item-title">{ title }</h2>
@@ -10,8 +10,6 @@
       <div class="item-contents"></div>
     </div>
   </section>
-
-  <home-contents class="home-contents" hide={ data }></home-contents>
 
   <script type="es6">
 
