@@ -1,24 +1,18 @@
 # Wnew
 
-[![Build Status](https://travis-ci.org/wakayama-hacker/wnew.svg?branch=master)](https://travis-ci.org/wakayama-hacker/wnew)
-
-This project "wnew" was started by members of IT community "[Wacker](http://wacker.io/)" in Wakayama.
+[![Build Status](https://travis-ci.org/wakayama-hacker/wmap.svg?branch=master)](https://travis-ci.org/wakayama-hacker/wmap)
 
 このプロジェクトでは、 Excel や CSV のオープンデータから簡単にウェブベースのモバイルアプリを作れるようにすることを目標にしています。
 
-http://wnew.wacker.io/
-
-This project is hotsted on GitHub at the URL below.
-
-https://github.com/wakayama-hacker/wnew
+* http://wmap.wacker.io/
+* https://github.com/wakayama-hacker/wmap
 
 ## このプロジェクトの特徴
 
 * `data/` ディレクトリ内に CSV や Excel ファイルを設置して `npm` コマンドを実行するだけで、それらのデータが JSON API に変換されモバイルアプリ上に表示されます。
 * `config.json` と `README.md` を編集することで、トップページやタイトルなどをカスタマイズすることができます。
-* Riot.js などのモダンな開発環境をあらかじめ構築済みなので、プログラミング初心者でもすぐにはじめることができます。
+* 開発環境をあらかじめ構築済みなので、プログラミング初心者でもすぐにはじめることができます。
 * Riot.js の柔軟でわかりやすいカスタムタグにより、さらに一歩踏み込んだカスタマイズも可能です。
-* Travis CI と組み合わせれば、CSV を編集するだけで、GitHub ページに自動的にデプロイすることができます。
 
 ## はじめかた
 
@@ -66,13 +60,3 @@ $ npm run build
 ```
 $ npm run build
 ```
-
-## タイトル等の変更
-
-アプリのタイトルは、`config.json` に記述されています。このファイルを編集してこれまでと同じように以下のコマンドを実行してください。
-
-```
-$ npm run build
-```
-
-まだカスタマイズ可能な項目は少ないですが、今後はテーマシステムを開発して、外観の変更も可能にしていく予定です。
