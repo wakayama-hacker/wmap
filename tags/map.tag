@@ -4,23 +4,39 @@
     const div = document.createElement( 'div' )
     this.root.appendChild( div )
     div.style.width = '100%'
-    const h = document.querySelector( '#panel' ).clientHeight - document.querySelector( '.fixed-header' ).clientHeight
-    div.style.height = h + 'px'
-    document.body.classList.add( 'fixed' )
+    const map = L.map( div )
 
-    const lat = opts.lat
-    const lng = opts.lng
+    const show_map = function() {
+      const h = document.body.clientHeight - document.querySelector( '.fixed-header' ).clientHeight
+      div.style.height = h + 'px'
+      document.body.classList.add( 'fixed' )
 
-    const map = L.map( div ).setView( [ lat, lng ], 14 )
+      const lat = opts.lat
+      const lng = opts.lng
 
-    L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    } ).addTo( map )
+      map.setView( new L.LatLng( lat, lng ), 14 )
 
-    L.marker( [ lat, lng ] ).addTo( map )
+      L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      } ).addTo( map )
+
+      L.marker( [ lat, lng ] ).addTo( map )
+    }
 
     this.click = function() {
       window.history.back()
     }.bind( this )
-</script>
+
+    global.resizeTimer
+    window.addEventListener( 'resize', function() {
+      if ( global.resizeTimer !== false ) {
+        clearTimeout( global.resizeTimer )
+      }
+      global.resizeTimer = setTimeout( function() {
+        show_map()
+      }, Math.floor( 1000 / 60 * 10 ) )
+    } )
+
+    show_map()
+  </script>
 </map>
