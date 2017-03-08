@@ -48,24 +48,29 @@ request
 
 document.querySelector( '.back-to-home' ).addEventListener( 'click', function() {
   slideout.close()
-  route( '' )
+  route( 'home' )
 }, false )
 
-route.start( true )
-
-route( '', function() {
-  riot.mount( home_contents )
-} )
+if ( ! location.hash ) {
+  route( 'home' )
+} else {
+  route( location.hash.replace( '#', '/' ) )
+}
 
 route( 'data/*', function( id ) {
+  console.log(id)
   if ( id.match( /^[a-f0-9]{32}$/ ) ) {
     request
       .get( config.endpoint + '/' + id + '.json' )
       .set( 'Accept', 'application/json' )
       .end( function( err, res ) {
-        riot.mount( main_contents, { data: res.body } )
+        riot.mount( '#panel > .app', main_contents, { data: res.body } )
       } )
   }
 } )
 
-route( location.hash.replace( '#', '/' ) )
+route( 'home', function() {
+  riot.mount( '#panel > .app', home_contents )
+} )
+
+route.start( true )

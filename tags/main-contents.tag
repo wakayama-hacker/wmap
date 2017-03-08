@@ -1,4 +1,4 @@
-<main-contents>
+<main-contents class="main-contents">
 
   <section class="item" each={ data }>
     <div class="wrap">
