@@ -88,7 +88,7 @@ const router = function( page, callback ) {
 
 router( 'home', function( div ) {
   riot.mount( div, home_contents )
-} );
+} )
 
 router( 'data', function( div, id ) {
   if ( id.match( /^[a-f0-9]{32}$/ ) ) {
@@ -99,4 +99,4 @@ router( 'data', function( div, id ) {
         riot.mount( div, main_contents, { data: res.body } )
       } )
   }
-} );
+} )
