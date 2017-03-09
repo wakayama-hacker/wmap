@@ -19,7 +19,6 @@ git init
 git config user.name $GIT_USER
 git config user.email $GIT_EMAIL
 
-git add config.json
 git add css
 git add fonts
 git add index.html

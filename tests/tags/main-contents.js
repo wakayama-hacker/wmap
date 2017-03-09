@@ -32,27 +32,4 @@ describe( 'main-contents specs', function() {
     expect( document.querySelector( '.item:nth-child(2) .item-description' ).innerText ).to.be( 'This is an apple.' )
     expect( document.querySelector( '.item:nth-child(2)' ).classList.contains( 'active' ) ).to.be( false )
   } )
-
-  it( '`.item` should have class `.active` when `.toggle` is clicked in `<main-contents>`', function() {
-    riot.mount( 'main-contents', { data: [
-      {
-        title: 'Orange',
-        content: 'This is an orange.'
-      },
-      {
-        title: 'Apple',
-        content: 'This is an apple.'
-      },
-      {
-        title: 'Banana',
-        content: 'This is a banana.'
-      },
-    ] } )
-
-    expect( document.querySelector( '.item:nth-child(2)' ).classList.contains( 'active' ) ).to.be( false )
-    document.querySelector( '.item:nth-child(2) .toggle' ).click()
-    expect( document.querySelector( '.item:nth-child(2)' ).classList.contains( 'active' ) ).to.be( true )
-    expect( document.querySelector( '.item:nth-child(1)' ).classList.contains( 'active' ) ).to.be( false )
-    expect( document.querySelector( '.item:nth-child(3)' ).classList.contains( 'active' ) ).to.be( false )
-  } )
 } )

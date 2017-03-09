@@ -3,16 +3,15 @@ $header--color_bg:           rgb( 66, 70, 73 );
 $header--color_fg:           #ffffff;
 
 // header-icons
-$header-icon--color_border:  #eeeeee;
 $header-icon--color_bg:      #ffffff;
 $header-icon--color_fg:      #555555;
 
 // menu
-$menu--color_shadow:         rgba( 0, 0, 0, 0.5 );
+$menu--color_shadow:         rgba( 0, 0, 0, 0.1 );
 
 // menu-item
 $menu-item--color_shadow:    rgba( 255, 255, 255, 0.7 );
-$menu-item--color_border:    #bbbbbb;
+$menu-item--color_border:    #cccccc;
 $menu-item--color_fg:        #555555;
 $menu-item--color_bg:        #f7f7f7;
 $menu-item--color_fg__hover: #ffffff;
