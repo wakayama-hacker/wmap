@@ -1,10 +1,10 @@
 #panel
 {
-  box-shadow: 0 0 10px 0 $panel-box-shadow-color;
-  color: $main-item-color;
+  box-shadow: 0 0 10px 0 $main--color_shadow;
+  color: $main-item--color_fg;
   padding-bottom: 24px;
   overflow: hidden;
-  background-color: $panel-background-color;
+  background-color: $main--color_bg;
 
   .main-contents
   {
@@ -14,12 +14,12 @@
 
     .item
     {
-      border: 1px solid $main-item-border-color;
-      border-top: 7px solid $main-item-border-color;
-      box-shadow: 0 0 2px 0 $main-item-box-shadow-color;
+      border: 1px solid $main-item--color_border;
+      border-top: 7px solid $main-item--color_border;
+      box-shadow: 0 0 2px 0 $main-item--color_shadow;
       margin: 18px;
       padding: 0;
-      background-color: $main-item-background-color;
+      background-color: $main-item--color_bg;
 
       .wrap
       {
@@ -60,7 +60,7 @@
     {
       font-size: 18px;
       margin-left: 1em;
-      color: $main-item-icon-color;
+      color: $main-item-icon--color_fg;
     }
 
     .toggle

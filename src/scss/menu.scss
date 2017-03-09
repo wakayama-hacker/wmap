@@ -1,22 +1,22 @@
 #menu
 {
-  background-color: $menu-item-background-color;
-  color: $menu-item-color;
+  background-color: $menu-item--color_bg;
+  color: $menu-item--color_fg;
   overflow: hidden;
   padding-bottom: 24px;
-  box-shadow: 1px 1px 10px 0 $menu-box-shadow-color inset;
+  box-shadow: 1px 1px 10px 0 $menu--color_shadow inset;
 
   .header
   {
-    color: $menu-item-color;
-    border-bottom: 1px solid $menu-item-border-color;
-    box-shadow: 0 0 2px 0 $menu-box-shadow-color;
+    color: $menu-item--color_fg;
+    border-bottom: 1px solid $menu-item--color_border;
+    box-shadow: 0 0 2px 0 $menu--color_shadow;
   }
 
   .header:hover
   {
-    background-color: $menu-item-background-color_hover;
-    color: $menu-item-color_hover;
+    background-color: $menu-item--color_bg__hover;
+    color: $menu-item--color_fg__hover;
   }
 
   .menu-item
@@ -31,14 +31,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px $horizontal-padding;
-    border-bottom: 1px solid $menu-item-border-color;
-    box-shadow: 0 0 2px 0 $menu-item-box-shadow-color;
+    border-bottom: 1px solid $menu-item--color_border;
+    box-shadow: 0 0 2px 0 $menu-item--color_shadow;
     cursor: pointer;
   }
 
   .item:hover
   {
-    background-color: $menu-item-background-color_hover;
-    color: $menu-item-color_hover;
+    background-color: $menu-item--color_bg__hover;
+    color: $menu-item--color_fg__hover;
   }
 }

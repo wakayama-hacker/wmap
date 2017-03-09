@@ -18,7 +18,7 @@ img
 
 .fixed-header
 {
-  background-color: $header-color;
+  background-color: $header--color_bg;
   position: fixed;
   width: 100%;
   backface-visibility: hidden;
@@ -32,16 +32,16 @@ img
 
   .home-icon
   {
-    border: 1px solid $icon-border-color;
+    border: 1px solid $header-icon--color_border;
     border-radius: 15px;
-    background-color: $icon-background-color;
+    background-color: $header-icon--color_bg;
     width: 30px;
     height: 30px;
     text-align: center;
     line-height: 30px;
     font-size: 18px;
     cursor: pointer;
-    color: $icon-color;
+    color: $header-icon--color_fg;
     margin: 0;
     padding: 0;
   }
@@ -53,7 +53,7 @@ img
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  color: $fixed-header-color;
+  color: $header--color_fg;
   margin: 0;
   padding: 0 $horizontal-padding;
   height: $main-menu-height;
