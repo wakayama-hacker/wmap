@@ -1,0 +1,37 @@
+// main-header
+$header--color_fg:           #ffffff;
+$header--color_bg:           rgb( 66, 70, 73 );
+
+// header-icons
+$header-icon--color_fg:      #555555;
+$header-icon--color_bg:      #ffffff;
+
+// menu
+$menu--color_shadow:         rgba( 0, 0, 0, 0.1 );
+
+// menu-item
+$menu-item--color_fg:        #555555;
+$menu-item--color_bg:        #f7f7f7;
+$menu-item--color_fg__hover: #ffffff;
+$menu-item--color_bg__hover: rgb( 85, 115, 187 );
+$menu-item--color_border:    #bbbbbb;
+$menu-item--color_shadow:    rgba( 255, 255, 255, 0.7 );
+
+// main
+$main--color_bg:             #f7f7f7;
+$main--color_border:         #bbbbbb;
+$main--color_shadow:         rgba( 0, 0, 0, 0.5 );
+
+// main-item
+$main-item--color_fg:        #555555;
+$main-item--color_bg:        #ffffff;
+$main-item--color_border:    #cccccc;
+$main-item--color_shadow:    rgba( 0, 0, 0, 0.1 );
+
+// main-item icons
+$main-item-icon--color_fg:   #cccccc;
+
+// map
+$map-icon--color_fg:         #555555;
+$map-icon--color_bg:         #ffffff;
+$map-icon--color_shadow:     rgba( 0, 0, 0, 0.7 );

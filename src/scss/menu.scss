@@ -1,22 +1,22 @@
 #menu
 {
-  background-color: #f0f0f0;
-  color: #555555;
+  background-color: $menu-item--color_bg;
+  color: $menu-item--color_fg;
   overflow: hidden;
   padding-bottom: 24px;
-  box-shadow: 1px 1px 5px 0 rgba( 0, 0, 0, 0.1 ) inset;
+  box-shadow: 1px 1px 5px 0 $menu--color_shadow inset;
 
   .header
   {
-    color: #555555;
-    border-bottom: 1px solid #bbbbbb;
-    box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 0.7 );
+    color: $menu-item--color_fg;
+    border-bottom: 1px solid $menu-item--color_border;
+    box-shadow: 0 0 2px 0 $menu--color_shadow;
   }
 
   .header:hover
   {
-    background-color: rgb( 85, 115, 187 );
-    color: #ffffff;
+    background-color: $menu-item--color_bg__hover;
+    color: $menu-item--color_fg__hover;
   }
 
   .menu-item
@@ -31,14 +31,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px $horizontal-padding;
-    border-bottom: 1px solid #cccccc;
-    box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 0.7 );
+    border-bottom: 1px solid $menu-item--color_border;
+    box-shadow: 0 0 2px 0 $menu-item--color_shadow;
     cursor: pointer;
   }
 
   .item:hover
   {
-    background-color: rgb( 85, 115, 187 );
-    color: #ffffff;
+    background-color: $menu-item--color_bg__hover;
+    color: $menu-item--color_fg__hover;
   }
 }

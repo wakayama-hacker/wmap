@@ -1,7 +1,6 @@
 $horizontal-padding: 18px;
 $main-menu-height: 50px;
 $app-status-bar-height: 20px;
-$header-color: rgb( 66, 70, 73 );
 
 html,
 body
@@ -27,7 +26,7 @@ img
 
 .fixed-header
 {
-  background-color: $header-color;
+  background-color: $header--color_bg;
   position: fixed;
   width: 100%;
   backface-visibility: hidden;
@@ -45,12 +44,12 @@ img
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    background-color: #ffffff;
+    background-color: $header-icon--color_bg;
     width: 30px;
     height: 30px;
     font-size: 18px;
     cursor: pointer;
-    color: #555555;
+    color: $header-icon--color_fg;
     margin: 0;
     padding: 0;
   }
@@ -62,7 +61,7 @@ img
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  color: #ffffff;
+  color: $header--color_fg;
   margin: 0;
   padding: 0 10px;
   height: $main-menu-height;
