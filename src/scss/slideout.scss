@@ -22,7 +22,7 @@
   position: relative;
   z-index: 1;
   will-change: transform;
-  background-color: #FFF; /* A background-color is required */
+  background-color: #FFF; /* A background-color is required. overwritten by panel.scss */
   min-height: 100vh;
 }
 

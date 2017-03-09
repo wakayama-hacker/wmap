@@ -1,22 +1,22 @@
 #menu
 {
-  background-color: #f7f7f7;
-  color: #555555;
+  background-color: $menu-item-background-color;
+  color: $menu-item-color;
   overflow: hidden;
   padding-bottom: 24px;
-  box-shadow: 1px 1px 10px 0 rgba( 0, 0, 0, 0.5 ) inset;
+  box-shadow: 1px 1px 10px 0 $menu-box-shadow-color inset;
 
   .header
   {
-    color: #555555;
-    border-bottom: 1px solid #bbbbbb;
-    box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 0.7 );
+    color: $menu-item-color;
+    border-bottom: 1px solid $menu-item-border-color;
+    box-shadow: 0 0 2px 0 $menu-box-shadow-color;
   }
 
   .header:hover
   {
-    background-color: rgb( 85, 115, 187 );
-    color: #ffffff;
+    background-color: $menu-item-background-color_hover;
+    color: $menu-item-color_hover;
   }
 
   .menu-item
@@ -31,14 +31,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px $horizontal-padding;
-    border-bottom: 1px solid #bbbbbb;
-    box-shadow: 0 0 2px 0 rgba( 255, 255, 255, 0.7 );
+    border-bottom: 1px solid $menu-item-border-color;
+    box-shadow: 0 0 2px 0 $menu-item-box-shadow-color;
     cursor: pointer;
   }
 
   .item:hover
   {
-    background-color: rgb( 85, 115, 187 );
-    color: #ffffff;
+    background-color: $menu-item-background-color_hover;
+    color: $menu-item-color_hover;
   }
 }

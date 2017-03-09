@@ -1,10 +1,10 @@
 #panel
 {
-  box-shadow: 0 0 10px 0 rgba( 0, 0, 0, 0.5 );
-  color: #555555;
+  box-shadow: 0 0 10px 0 $panel-box-shadow-color;
+  color: $main-item-color;
   padding-bottom: 24px;
   overflow: hidden;
-  background-color: #f7f7f7;
+  background-color: $panel-background-color;
 
   .main-contents
   {
@@ -14,12 +14,12 @@
 
     .item
     {
-      border: 1px solid #cccccc;
-      border-top: 7px solid #cccccc;
-      box-shadow: 0 0 2px 0 rgba( 0, 0, 0, 0.1 );
+      border: 1px solid $main-item-border-color;
+      border-top: 7px solid $main-item-border-color;
+      box-shadow: 0 0 2px 0 $main-item-box-shadow-color;
       margin: 18px;
       padding: 0;
-      background-color: #ffffff;
+      background-color: $main-item-background-color;
 
       .wrap
       {
@@ -60,7 +60,7 @@
     {
       font-size: 18px;
       margin-left: 1em;
-      color: #cccccc;
+      color: $main-item-icon-color;
     }
 
     .toggle
