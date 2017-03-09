@@ -91,6 +91,7 @@ route( function( page, id ) {
   } } )
   document.dispatchEvent( event )
 
+  slideout.close()
   window.scrollTo( 0, 0 )
 } )
 
