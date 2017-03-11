@@ -13,7 +13,21 @@ if [[ "master" != "$TRAVIS_BRANCH" ]]; then
 fi
 
 rm -fr .git
+rm -fr bin
+rm -fr data
+rm -fr lib
+rm -fr node_modules
+rm -fr src
+rm -fr tags
+rm -fr tests
+rm -fr .editorconfig
+rm -fr .eslintignore
+rm -fr .eslintrc.json
 rm -fr .gitignore
+rm -fr .travis.yml
+rm -fr gulpfile.js
+rm -fr karma.conf.js
+rm -fr package.json
 
 git init
 git config user.name $GIT_USER
