@@ -23,6 +23,7 @@ const menu_header = require( '../tags/menu-header.tag' )
 const home_contents = require( '../tags/home-contents.tag' )
 const main_contents = require( '../tags/main-contents.tag' )
 const map = require( '../tags/map.tag' )
+const gallery = require( '../tags/gallery.tag' )
 
 if ( window.navigator.standalone ) {
   if ( document.body.clientHeight < document.body.clientWidth ) {
@@ -125,5 +126,11 @@ router( 'map', function( div, id ) {
   riot.mount( div, map, {
     lat: lat,
     lng: lng
+  } )
+} )
+
+router( 'gallery', function( div, id ) {
+  riot.mount( div, gallery, {
+    image: id
   } )
 } )

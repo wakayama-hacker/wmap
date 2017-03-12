@@ -14,6 +14,7 @@ const marked      = require( 'gulp-marked' )
 const replace     = require( 'gulp-replace' )
 const rename      = require( 'gulp-rename' )
 const rimraf      = require( 'rimraf' )
+const sharp       = require( './lib/gulp-wsharp.js' )
 
 gulp.task( 'md', () => {
   gulp.src( 'README.md' )
@@ -62,6 +63,12 @@ gulp.task( 'data', [ 'clean' ], () => {
     .pipe( gulp.dest( './json' ) )
 } )
 
+gulp.task( 'image', () => {
+  gulp.src( './images/**/*.jpg' )
+    .pipe( sharp( 320 ) )
+    .pipe( gulp.dest( './thumbnails' ) )
+} )
+
 gulp.task( 'css', () => {
   gulp.src( [
     'node_modules/leaflet/dist/leaflet.css',
@@ -94,6 +101,7 @@ gulp.task( 'sass', () => {
 gulp.task( 'build', [
   'js',
   'data',
+  'image',
   'css',
   'css-images',
   'sass',

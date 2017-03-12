@@ -30,6 +30,16 @@
       {
         display: none;
       }
+
+      .thumbnail-wrap
+      {
+        text-align: center;
+        .thumbnail
+        {
+          display: inline-block;
+          cursor: pointer;
+        }
+      }
     }
 
     .item.active .item-contents
@@ -71,7 +81,8 @@
     }
   }
 
-  .map
+  .map,
+  .gallery
   {
     .back
     {
@@ -90,6 +101,16 @@
       background-color: $map-icon--color_bg;
       box-shadow: 0 0 5px 0 $map-icon--color_shadow;
       z-index: 9999;
+    }
+  }
+
+  .gallery
+  {
+    .image-wrap
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
