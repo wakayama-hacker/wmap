@@ -6,7 +6,7 @@
         <h2 class="item-title">{ title }</h2>
         <div class="item-toggle" show={ lat && lng }><i class="show-map glyphicon glyphicon-map-marker" onclick={ parent.routeMap } data-lat="{ lat }" data-lng={ lng }></i></div>
       </header>
-      <div class="thumbnail-wrap" show={ image }><img class="show-gallery thumbnail" src={ './thumbnails/' + image + '.thumb.jpg' } onclick={ parent.routeGallery } data-image={ image }></div>
+      <div class="thumbnail-wrap" show={ image }><img class="show-gallery thumbnail" src={ './thumbnails/' + image } onclick={ parent.routeGallery } data-image={ image }></div>
       <p class="item-description">{ content }</p>
     </div>
   </section>

@@ -9,7 +9,7 @@
 
   <script type="es6">
 
-    this.src = './images/' + opts.image + '.jpg'
+    this.src = './images/' + opts.image
 
     this.click = function() {
       window.history.back()
