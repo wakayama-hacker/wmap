@@ -129,8 +129,8 @@ router( 'map', function( div, id ) {
   } )
 } )
 
-route( 'gallery', function( div, image ) {
+router( 'gallery', function( div, id ) {
   riot.mount( div, gallery, {
-    image: image
+    image: id
   } )
 } )

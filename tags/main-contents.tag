@@ -4,9 +4,9 @@
     <div class="wrap">
       <header class="item-header">
         <h2 class="item-title">{ title }</h2>
-        <div class="item-toggle" show={ lat && lng }><i class="show-map glyphicon glyphicon-map-marker" onclick={ parent.click } data-lat="{ lat }" data-lng={ lng }></i></div>
-        <div class="item-toggle" show={ image }><i class="show-gallery glyphicon glyphicon-picture" onclick={ parent.clickGallery } data-image={ image }></i></div>
+        <div class="item-toggle" show={ lat && lng }><i class="show-map glyphicon glyphicon-map-marker" onclick={ parent.routeMap } data-lat="{ lat }" data-lng={ lng }></i></div>
       </header>
+      <div class="thumbnail-wrap" show={ image }><img class="show-gallery thumbnail" src={ './thumbnails/' + image + '.thumb.jpg' } onclick={ parent.routeGallery } data-image={ image }></div>
       <p class="item-description">{ content }</p>
     </div>
   </section>
@@ -16,12 +16,11 @@
       this.data = opts.data
     }
 
-    this.click = function( e ) {
+    this.routeMap = function( e ) {
       route( 'map/' + e.target.dataset.lat.trim() + ',' + e.target.dataset.lng.trim() )
     }.bind( this )
 
-    this.clickGallery = function( e ) {
-      console.log('gallery/' + e.target.dataset.image.trim())
+    this.routeGallery = function( e ) {
       route( 'gallery/' + e.target.dataset.image.trim() )
     }.bind( this )
 
