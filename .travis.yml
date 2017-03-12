@@ -5,9 +5,13 @@ node_js:
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-precise-3.7
+      - llvm-toolchain-precise
     packages:
-    - g++-4.8
+      - clang-3.7
+      - g++-5
+      - gcc-5
 
 before_script:
 - npm install
