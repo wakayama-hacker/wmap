@@ -8,7 +8,6 @@
         <div class="item-toggle" show={ image }><i class="show-gallery glyphicon glyphicon-picture" onclick={ parent.clickGallery } data-image={ image }></i></div>
       </header>
       <p class="item-description">{ content }</p>
-      <div class="item-contents"></div>
     </div>
   </section>
 
