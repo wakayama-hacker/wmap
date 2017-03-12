@@ -40,8 +40,6 @@ if ( window.navigator.standalone ) {
   } )
 }
 
-document.title = config.main_title
-
 riot.mount( menu_header )
 
 document.querySelector( '.toggle' ).addEventListener( 'click', function() {
