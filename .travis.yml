@@ -13,7 +13,7 @@ addons:
 
 before_install:
 - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
-
+- gcc -v; g++ -v
 before_script:
 - npm install
 
