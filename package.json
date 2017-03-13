@@ -1,5 +1,5 @@
 {
-  "name": "wnew",
+  "name": "wmap",
   "version": "1.0.0",
   "description": "Riot based SPA project template",
   "main": "index.html",
@@ -21,6 +21,7 @@
     "eslint-plugin-riot": "^0.1.6",
     "expect.js": "^0.3.1",
     "gulp": "^3.9.1",
+    "gulp-ejs": "^3.0.0",
     "gulp-marked": "^1.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
