@@ -16,7 +16,7 @@ const replace     = require( 'gulp-replace' )
 const rename      = require( 'gulp-rename' )
 const rimraf      = require( 'rimraf' )
 
-const config = require( './config.json' )
+const config = require( './src/config.json' )
 
 gulp.task( 'md', () => {
   gulp.src( 'README.md' )
@@ -34,7 +34,7 @@ gulp.task( 'md', () => {
 } )
 
 gulp.task( 'html', () => {
-  gulp.src( './index.html.ejs' )
+  gulp.src( './src/index.html.ejs' )
     .pipe( ejs( config ) )
     .pipe( rename( './index.html' ) )
     .pipe( gulp.dest( './' ) )
