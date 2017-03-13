@@ -3,5 +3,6 @@
   "description": "An open source mobile application framework which displays open data.",
   "url": "https://wmap.wacker.io/",
   "locale": "ja",
+  "theme": "wakayama",
   "endpoint": "json"
 }
