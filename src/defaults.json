@@ -2,5 +2,6 @@
   "title": "Wmap",
   "description": "An open source mobile application framework which displays open data.",
   "url": "https://wmap.wacker.io/",
-  "locale": "ja"
+  "locale": "ja",
+  "endpoint": "json"
 }

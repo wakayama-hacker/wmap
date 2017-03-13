@@ -1,10 +1,10 @@
 #panel
 {
-  color: $main-item--color_fg;
+  color: $main-item-color-fg;
   padding-bottom: 24px;
   overflow: hidden;
-  background-color: $main--color_bg;
-  border-right: 1px solid $main--color_border;
+  background-color: $main-color-bg;
+  border-right: 1px solid $main-color-border;
 
   .main-contents
   {
@@ -14,12 +14,12 @@
 
     .item
     {
-      border: 1px solid $main-item--color_border;
-      border-top: 7px solid $main-item--color_border;
-      box-shadow: 0 0 2px 0 $main-item--color_shadow;
+      border: 1px solid $main-item-color-border;
+      border-top: 7px solid $main-item-color-border;
+      box-shadow: 0 0 2px 0 $main-item-color-shadow;
       margin: 18px;
       padding: 0;
-      background-color: $main-item--color_bg;
+      background-color: $main-item-color-bg;
 
       .wrap
       {
@@ -79,16 +79,16 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 10px;
+      top: $main-menu-height + 10px;
       right: 10px;
       cursor: pointer;
       width: 40px;
       height: 40px;
       border-radius: 40px;
       font-size: 20px;
-      color: $map-icon--color_fg;
-      background-color: $map-icon--color_bg;
-      box-shadow: 0 0 5px 0 $map-icon--color_shadow;
+      color: $map-icon-color-fg;
+      background-color: $map-icon-color-bg;
+      box-shadow: 0 0 5px 0 $map-icon-color-shadow;
       z-index: 9999;
     }
   }
