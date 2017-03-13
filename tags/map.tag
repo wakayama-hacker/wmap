@@ -4,18 +4,16 @@
     const div = document.createElement( 'div' )
     this.root.appendChild( div )
     div.style.width = '100%'
-    div.style.height = '100%'
+    if ( document.querySelector( '.fixed-header' ) ) {
+      const h = document.body.clientHeight - document.querySelector( '.fixed-header' ).clientHeight
+      div.style.height = h + 'px'
+    } else {
+      div.style.height = '100%'
+    }
 
     const map = L.map( div )
 
     const show_map = function() {
-      if ( document.querySelector( '.fixed-header' ) ) {
-        const h = document.body.clientHeight - document.querySelector( '.fixed-header' ).clientHeight
-        div.style.height = h + 'px'
-      } else {
-        div.style.height = '100%'
-      }
-
       const lat = opts.lat
       const lng = opts.lng
 
