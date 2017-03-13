@@ -3,6 +3,7 @@
 const browserify  = require( 'browserify' )
 const buffer      = require( 'vinyl-buffer' )
 const csv2json    = require( './lib/gulp-wcsv2json' )
+const ejs         = require( 'gulp-ejs' )
 const gulp        = require( 'gulp' )
 const riotify     = require( 'riotify' )
 const sass        = require( 'gulp-sass' )
@@ -14,6 +15,8 @@ const marked      = require( 'gulp-marked' )
 const replace     = require( 'gulp-replace' )
 const rename      = require( 'gulp-rename' )
 const rimraf      = require( 'rimraf' )
+
+const config = require( './config.json' )
 
 gulp.task( 'md', () => {
   gulp.src( 'README.md' )
@@ -28,6 +31,13 @@ gulp.task( 'md', () => {
       path.extname = '.tag'
     } ) )
     .pipe( gulp.dest( 'tags' ) )
+} )
+
+gulp.task( 'html', () => {
+  gulp.src( './index.html.ejs' )
+    .pipe( ejs( config ) )
+    .pipe( rename( './index.html' ) )
+    .pipe( gulp.dest( './' ) )
 } )
 
 gulp.task( 'js', [ 'md' ], function ( cb ) {
@@ -92,6 +102,7 @@ gulp.task( 'sass', () => {
 } )
 
 gulp.task( 'build', [
+  'html',
   'js',
   'data',
   'css',
