@@ -1,16 +1,15 @@
-<map class="map">
+<map class="map" style="width: 100%; height: 100%;">
   <div class="back" onclick="{ click }"><i class="glyphicon glyphicon-remove"></i></div>
   <script type="es6">
     const div = document.createElement( 'div' )
     this.root.appendChild( div )
     div.style.width = '100%'
-    document.querySelector( '#panel' ).style.height = '100%'
-    document.body.classList.add( 'fixed' )
+    div.style.height = '100%'
+
     const map = L.map( div )
 
     const show_map = function() {
-      const h = document.body.clientHeight - document.querySelector( '.fixed-header' ).clientHeight
-      div.style.height = h + 'px'
+      div.style.height = '100%'
 
       const lat = opts.lat
       const lng = opts.lng

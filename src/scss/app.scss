@@ -85,7 +85,10 @@ img
 #panel
 {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   padding-top: $main-menu-height;
+  height: 100% !important;
 }
 
 .web-app
