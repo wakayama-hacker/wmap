@@ -9,7 +9,7 @@
     const map = L.map( div )
 
     const show_map = function() {
-      if ( document.querySelector( '.fixed-header' ).length ) {
+      if ( document.querySelector( '.fixed-header' ) ) {
         const h = document.body.clientHeight - document.querySelector( '.fixed-header' ).clientHeight
         div.style.height = h + 'px'
       } else {
