@@ -1,6 +1,6 @@
 'use strict'
 
-global.config = require( './config.json' )
+global.config = require( './defaults.json' )
 global.resizeTimer
 
 global.riot = require( 'riot' )

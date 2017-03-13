@@ -16,7 +16,7 @@ const replace     = require( 'gulp-replace' )
 const rename      = require( 'gulp-rename' )
 const rimraf      = require( 'rimraf' )
 
-const config = require( './src/config.json' )
+const config = require( './src/defaults.json' )
 
 // theme slug fallback
 config.theme = ( config.theme && config.theme !== '' ) ? config.theme : 'default'
@@ -99,7 +99,6 @@ gulp.task( 'fonts', () => {
 } )
 
 gulp.task( 'sass', () => {
-
   return gulp.src( './src/style.scss.ejs' )
     .pipe( rename( './style.scss' ) )
     .pipe( ejs( config ) )
