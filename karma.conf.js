@@ -1,15 +1,17 @@
 module.exports = function( config ) {
   config.set( {
     basePath: '',
-    frameworks: [ 'mocha', 'riot' ],
+    frameworks: [ 'mocha', 'riot', 'browserify' ],
     plugins: [
       'karma-mocha',
       'karma-mocha-reporter',
       'karma-phantomjs-launcher',
-      'karma-riot'
+      'karma-riot',
+      'karma-browserify'
     ],
     files: [
       'node_modules/expect.js/index.js',
+      'tests/karma-bootstrap.js',
       'tags/*.tag',
       'tests/**/*.js',
     ],
@@ -17,6 +19,7 @@ module.exports = function( config ) {
       'tests/lib/**/*.js'
     ],
     preprocessors: {
+      'tests/karma-bootstrap.js': [ 'browserify' ],
       'tags/*.tag': [ 'riot' ]
     },
     browsers: [ 'PhantomJS' ],

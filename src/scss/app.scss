@@ -85,7 +85,10 @@ img
 #panel
 {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   padding-top: $main-menu-height;
+  height: 100% !important;
 }
 
 .web-app
@@ -99,6 +102,6 @@ img
   #menu,
   #panel
   {
-    margin-top: $app-status-bar-height + $main-menu-height;
+    padding-top: $app-status-bar-height + $main-menu-height;
   }
 }

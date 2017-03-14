@@ -26,6 +26,7 @@ rm -fr .eslintrc.json
 rm -fr .gitignore
 rm -fr .travis.yml
 rm -fr gulpfile.js
+rm -fr index.html.ejs
 rm -fr karma.conf.js
 rm -fr package.json
 

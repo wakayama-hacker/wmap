@@ -1,10 +1,14 @@
 #panel
 {
   color: $main-item-color-fg;
-  padding-bottom: 24px;
-  overflow: hidden;
   background-color: $main-color-bg;
   border-right: 1px solid $main-color-border;
+
+  .home-contents,
+  .main-contents
+  {
+    overflow: hidden;
+  }
 
   .main-contents
   {
@@ -73,6 +77,8 @@
 
   .map
   {
+    width: 100%;
+
     .back
     {
       display: flex;
@@ -90,6 +96,20 @@
       background-color: $map-icon-color-bg;
       box-shadow: 0 0 5px 0 $map-icon-color-shadow;
       z-index: 9999;
+    }
+  }
+}
+
+.web-app
+{
+  #panel
+  {
+    .map
+    {
+      .back
+      {
+        top: $main-menu-height + $app-status-bar-height + 10px;
+      }
     }
   }
 }
