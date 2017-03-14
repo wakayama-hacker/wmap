@@ -37,7 +37,7 @@ gulp.task( 'md', () => {
 } )
 
 gulp.task( 'html', () => {
-  gulp.src( './src/index.html.ejs' )
+  gulp.src( './index.html.ejs' )
     .pipe( ejs( config ) )
     .pipe( rename( './index.html' ) )
     .pipe( gulp.dest( './' ) )
