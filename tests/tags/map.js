@@ -15,6 +15,7 @@ describe( 'map specs', function() {
 
   it( 'Tests for the `<map />` with args', function() {
     riot.mount( 'map', {
+      layers: config.map.layers,
       lat: '33.488547',
       lng: '135.795751'
     } )

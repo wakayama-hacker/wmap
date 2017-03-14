@@ -19,15 +19,35 @@
       const lat = opts.lat
       const lng = opts.lng
 
-      map.setView( new L.LatLng( lat, lng ), 14 )
+      if ( ! opts.zoom ) {
+        opts.zoom = 14
+      }
 
-      L.tileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      } ).addTo( map )
+      map.setView( new L.LatLng( lat, lng ), opts.zoom )
 
-      L.marker( [ lat, lng ] ).addTo( map ).on( 'click', function() {
+      const markers = new L.LayerGroup()
+
+      L.marker( [ lat, lng ] ).on( 'click', function() {
         location.href='http://maps.apple.com/?q='+lat+','+lng
-      } )
+      } ).addTo( markers )
+
+      map.addLayer( markers )
+
+      const layers = opts.layers
+
+      const basemaps = {}
+      for ( var i = 0; i < layers.length; i++ ) {
+        const layer = L.tileLayer( layers[ i ].tile, {
+          id: i,
+          attribution: '<a href="' + layers[ i ].attribution_url + '" target="_blank">' + layers[ i ].attribution + '</a>'
+        } )
+        basemaps[ layers[ i ].name ] = layer
+        if ( 0 === i ) {
+          map.addLayer( layer )
+        }
+      }
+
+      L.control.layers( basemaps, { '<i class="glyphicon glyphicon-map-marker"></i>': markers }, { position: 'bottomleft' } ).addTo( map )
     }
 
     this.click = function() {

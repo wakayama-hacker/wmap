@@ -123,6 +123,8 @@ router( 'map', function( div, id ) {
   const lat = latlng[0]
   const lng = latlng[1]
   riot.mount( div, map, {
+    layers: config.map.layers,
+    zoom: config.map.zoom,
     lat: lat,
     lng: lng
   } )
