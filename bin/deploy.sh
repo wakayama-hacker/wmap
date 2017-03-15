@@ -34,14 +34,8 @@ git init
 git config user.name $GIT_USER
 git config user.email $GIT_EMAIL
 
-git add css
-git add fonts
-git add index.html
-git add js
-git add json
-git add CNAME
-
 touch .nojekyll
-git add .nojekyll
+
+git add .
 git commit --quiet -m "Deploy from travis"
 git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
