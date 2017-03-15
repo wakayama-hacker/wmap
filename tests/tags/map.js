@@ -17,7 +17,13 @@ describe( 'map specs', function() {
     riot.mount( 'map', {
       layers: config.map.layers,
       lat: '33.488547',
-      lng: '135.795751'
+      lng: '135.795751',
+      markers: [
+        {
+          lat: '33.488547',
+          lng: '135.795751'
+        }
+      ]
     } )
     expect( document.querySelectorAll( '.leaflet-container' ).length ).to.be( 1 )
   } )
