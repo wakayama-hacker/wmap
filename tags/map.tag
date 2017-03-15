@@ -35,7 +35,7 @@
 
       opts.markers.forEach( function( data ) {
         const div = document.createElement( 'div' )
-        const title = document.createElement( 'h3' )
+        const title = document.createElement( 'h4' )
         const a = document.createElement( 'a' )
         a.href = 'http://maps.apple.com/?q=' + escape( data.lat ) + ',' + escape( data.lng )
         a.innerText = data.title
