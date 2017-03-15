@@ -23,6 +23,7 @@ const menu_header = require( '../tags/menu-header.tag' )
 const home_contents = require( '../tags/home-contents.tag' )
 const main_contents = require( '../tags/main-contents.tag' )
 const map = require( '../tags/map.tag' )
+const error = require( '../tags/error.tag' )
 
 if ( window.navigator.standalone ) {
   if ( document.body.clientHeight < document.body.clientWidth ) {
@@ -67,6 +68,9 @@ if ( ! location.hash ) {
   route( location.hash.replace( '#', '/' ) )
 }
 
+// All main contents are in this block.
+const content_block = document.createElement( 'div' )
+
 route( function( page, id ) {
   if ( ! page ) {
     return
@@ -76,15 +80,17 @@ route( function( page, id ) {
   while ( parent.firstChild ) {
     parent.removeChild( parent.firstChild )
   }
-  const div = document.createElement( 'div' )
-  parent.appendChild( div )
+  parent.appendChild( content_block )
 
   // to ignore scroll when map is showing
   document.body.classList.remove( 'fixed' )
   document.querySelector( '#panel' ).style.height = 'auto'
 
+  riot.mount( content_block, error, {
+    message: 'Not Found.'
+  } )
+
   const event = new CustomEvent( 'router-' + page, { 'detail': {
-    div: div,
     id: id
   } } )
   document.dispatchEvent( event )
@@ -97,45 +103,69 @@ route.start( true )
 
 const router = function( page, callback ) {
   document.addEventListener( 'router-' + page, function( e ) {
-    const div = e.detail.div
     const id = e.detail.id
-    callback( div, id )
+    content_block.innerHTML = ''
+    callback( id )
   }, false )
 }
 
-router( 'home', function( div ) {
-  riot.mount( div, home_contents )
+const mount = function( tag, opts ) {
+  riot.mount( content_block, tag, opts )
+}
+
+router( 'home', function() {
+  mount( home_contents )
 } )
 
-router( 'data', function( div, id ) {
+router( 'data', function( id ) {
   if ( id.match( /^[a-f0-9]{32}$/ ) ) {
     request
       .get( config.endpoint + '/' + id + '.json' )
       .set( 'Accept', 'application/json' )
       .end( function( err, res ) {
-        riot.mount( div, main_contents, {
-          id: id,
-          data: res.body
-        } )
+        if ( err ) {
+          mount( error, {
+            message: 'Not Found.'
+          } )
+        } else {
+          mount( main_contents, {
+            id: id,
+            data: res.body
+          } )
+        }
       } )
+  } else {
+    mount( error, {
+      message: 'Not Found.'
+    } )
   }
 } )
 
-router( 'map', function( div, id ) {
+router( 'map', function( id ) {
   if ( id.match( /^[a-f0-9]{32}\:[0-9]+$/ ) ) {
     const args = id.split( ':' )
     request
       .get( config.endpoint + '/' + args[0] + '.json' )
       .set( 'Accept', 'application/json' )
       .end( function( err, res ) {
-        const data = res.body[ args[1] ]
-        riot.mount( div, map, {
-          layers: config.map.layers,
-          zoom: config.map.zoom,
-          lat: data.lat,
-          lng: data.lng,
-          markers: res.body
-        } )
+        if ( err ) {
+          mount( error, {
+            message: 'Not Found.'
+          } )
+        } else {
+          const data = res.body[ args[1] ]
+          mount( map, {
+            layers: config.map.layers,
+            zoom: config.map.zoom,
+            lat: data.lat,
+            lng: data.lng,
+            markers: res.body
+          } )
+        }
       } )
+  } else {
+    mount( error, {
+      message: 'Not Found.'
+    } )
   }
 } )
