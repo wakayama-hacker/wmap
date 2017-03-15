@@ -24,14 +24,14 @@
 
       const markers = new L.LayerGroup()
 
-      const redIcon = new L.Icon({
+      const redIcon = new L.Icon( {
         iconUrl: 'img/marker-icon-2x-red.png',
         shadowUrl: 'img/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        iconSize: [ 25, 41 ],
+        iconAnchor: [ 12, 41 ],
+        popupAnchor: [ 1, -34 ],
+        shadowSize: [ 41, 41 ]
+      } )
 
       opts.markers.forEach( function( data ) {
         const div = document.createElement( 'div' )
