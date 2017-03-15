@@ -113,25 +113,35 @@ router( 'data', function( div, id ) {
       .get( config.endpoint + '/' + id + '.json' )
       .set( 'Accept', 'application/json' )
       .end( function( err, res ) {
-        riot.mount( div, main_contents, { data: res.body } )
+        riot.mount( div, main_contents, {
+          id: id,
+          data: res.body
+        } )
       } )
   }
 } )
 
 router( 'map', function( div, id ) {
-  const latlng = id.split( ',' )
-  const lat = latlng[0]
-  const lng = latlng[1]
-  riot.mount( div, map, {
-    layers: config.map.layers,
-    zoom: config.map.zoom,
-    lat: lat,
-    lng: lng,
-    markers: [
-      {
-        lat: lat,
-        lng: lng
-      }
-    ]
-  } )
+  if ( id.match( /^[a-f0-9]{32}\:[0-9]+$/ ) ) {
+    const args = id.split( ':' )
+    request
+      .get( config.endpoint + '/' + args[0] + '.json' )
+      .set( 'Accept', 'application/json' )
+      .end( function( err, res ) {
+        const data = res.body[ args[1] ]
+        riot.mount( div, map, {
+          layers: config.map.layers,
+          zoom: config.map.zoom,
+          lat: data.lat,
+          lng: data.lng,
+          markers: [
+            {
+              titile: data.title,
+              lat: data.lat,
+              lng: data.lng
+            }
+          ]
+        } )
+      } )
+  }
 } )
