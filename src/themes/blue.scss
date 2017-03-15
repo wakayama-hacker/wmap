@@ -1,0 +1,51 @@
+// ============================================================================
+// テーマ名: blue
+// 特徴: 青色を主体にしたWmapのカラーテーマです。
+// ============================================================================
+
+
+$blue1: lighten( #b3e5fc, 10% );
+$blue2: darken( #01579b, 15% );
+// ------------------------------------
+// header
+// ------------------------------------
+// main-header
+$header-color-bg: $blue2;
+
+// header-icons
+$header-icon-color-fg: $blue1;
+
+// ------------------------------------
+// menu
+// ------------------------------------
+// menu
+$menu-color-shadow:        rgba( 0, 0, 255, 0.1 );
+
+// menu-item
+$menu-item-color-fg:       $blue2;
+$menu-item-color-bg:       $blue1;
+$menu-item-color-border:   darken( $blue1, 10% );
+$menu-item-color-fg-hover: $blue1;
+$menu-item-color-bg-hover: lighten( $blue2, 15% );
+
+// ------------------------------------
+// panel
+// ------------------------------------
+// main
+$main-color-fg:     $blue2;
+$main-color-bg:     $blue1;
+$main-color-border: darken( $blue1, 10% );
+
+// main-item
+$main-item-color-bg:     $blue1;
+$main-item-color-border: darken( $blue1, 20% );
+
+// main-item icons
+$main-item-icon-color-fg: $blue2;
+
+// ------------------------------------
+// trivials
+// ------------------------------------
+// map
+$map-icon-color-fg: $blue2;
+$map-icon-color-bg: $blue1;
