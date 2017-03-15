@@ -4,7 +4,7 @@
   "description": "Riot based SPA project template",
   "main": "index.html",
   "scripts": {
-    "start": "http-server -io",
+    "start": "http-server -io -p 8080",
     "build": "gulp build",
     "test": "npm run test:unit && karma start",
     "pretest": "npm run lint && npm run build",

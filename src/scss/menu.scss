@@ -14,7 +14,7 @@
   .header
   {
     color: $menu-item-color-fg;
-    border-bottom: 1px solid $menu-item-color-border;
+    border-bottom: 1px solid $menu-color-border;
     box-shadow: 0 0 2px 0 $menu-color-shadow;
   }
 
@@ -25,7 +25,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px $horizontal-padding;
-    border-bottom: 1px solid $menu-item-color-border;
+    border-bottom: 1px solid $menu-color-border;
     box-shadow: 0 0 2px 0 $menu-item-color-shadow;
     cursor: pointer;
   }
