@@ -1,12 +1,12 @@
 <main-contents class="main-contents">
 
-  <section class="item" each={ data }>
+  <section class="item" each={ item, index in data }>
     <div class="wrap">
       <header class="item-header">
-        <h2 class="item-title">{ title }</h2>
-        <div class="item-toggle" show={ lat && lng }><i class="show-map glyphicon glyphicon-map-marker" onclick={ parent.click } data-lat="{ lat }" data-lng={ lng }></i></div>
+        <h2 class="item-title">{ item.title }</h2>
+        <div class="item-toggle" show={ item.lat && item.lng }><i class="show-map glyphicon glyphicon-map-marker" onclick={ parent.click } data-id="{ index }"></i></div>
       </header>
-      <p class="item-description">{ content }</p>
+      <p class="item-description">{ item.content }</p>
     </div>
   </section>
 
@@ -16,7 +16,7 @@
     }
 
     this.click = function( e ) {
-      route( 'map/' + e.target.dataset.lat.trim() + ',' + e.target.dataset.lng.trim() )
+      route( 'map/' + opts.id.trim() + ':' + e.target.dataset.id.trim() )
     }.bind( this )
   </script>
 
