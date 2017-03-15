@@ -1,7 +1,3 @@
-$horizontal-padding: 18px;
-$main-menu-height: 50px;
-$app-status-bar-height: 20px;
-
 html,
 body
 {
@@ -22,63 +18,6 @@ img
   max-width: 100%;
   height: auto;
   box-sizing: border-box;
-}
-
-.fixed-header
-{
-  background-color: $header-color-bg;
-  position: fixed;
-  width: 100%;
-  backface-visibility: hidden;
-  top: 0px;
-  left: 0px;
-  height: $main-menu-height;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  z-index: 2;
-
-  .home-icon
-  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    background-color: $header-icon-color-bg;
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-    cursor: pointer;
-    color: $header-icon-color-fg;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.fixed-header .wrap
-{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  color: $header-color-fg;
-  margin: 0;
-  padding: 0 10px;
-  height: $main-menu-height;
-  overflow: hidden;
-
-  .title
-  {
-    font-size: 16px;
-    margin: 0;
-    font-weight: normal;
-  }
-
-  .toggle
-  {
-    cursor: pointer;
-    font-size: 18px;
-  }
 }
 
 #menu,

@@ -1,6 +1,6 @@
 #panel
 {
-  color: $main-item-color-fg;
+  color: $main-color-fg;
   background-color: $main-color-bg;
   border-right: 1px solid $main-color-border;
 
@@ -19,7 +19,7 @@
     .item
     {
       border: 1px solid $main-item-color-border;
-      border-top: 7px solid $main-item-color-border;
+      border-top-width: 7px;
       box-shadow: 0 0 2px 0 $main-item-color-shadow;
       margin: 18px;
       padding: 0;
@@ -64,6 +64,7 @@
     {
       cursor: pointer;
       font-size: 32px;
+      color: $main-item-icon-color-fg;
     }
   }
 

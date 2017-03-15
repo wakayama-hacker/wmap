@@ -19,7 +19,9 @@ const rimraf      = require( 'rimraf' )
 const config = require( './src/defaults.json' )
 
 // theme slug fallback
-config.theme = ( config.theme && config.theme !== '' ) ? config.theme : 'default'
+config.theme_path = ( config.theme && config.theme !== '' ) ?
+  `./themes/${config.theme}.scss` :
+  './scss/variables.scss'
 
 gulp.task( 'md', () => {
   gulp.src( 'README.md' )
