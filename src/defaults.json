@@ -14,12 +14,6 @@
         "attribution_url": "http://osm.org/copyright"
       },
       {
-        "name": "GSI Japan",
-        "tile": "https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png",
-        "attribution": "GSI Japan",
-        "attribution_url": "http://maps.gsi.go.jp/development/ichiran.html"
-      },
-      {
         "name": "空中写真",
         "tile": "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
         "attribution": "GSI Japan",

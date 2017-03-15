@@ -126,6 +126,12 @@ router( 'map', function( div, id ) {
     layers: config.map.layers,
     zoom: config.map.zoom,
     lat: lat,
-    lng: lng
+    lng: lng,
+    markers: [
+      {
+        lat: lat,
+        lng: lng
+      }
+    ]
   } )
 } )

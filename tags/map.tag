@@ -27,9 +27,11 @@
 
       const markers = new L.LayerGroup()
 
-      L.marker( [ lat, lng ] ).on( 'click', function() {
-        location.href='http://maps.apple.com/?q='+lat+','+lng
-      } ).addTo( markers )
+      opts.markers.forEach( function( data ) {
+        L.marker( [ data.lat, data.lng ] ).on( 'click', function() {
+          location.href='http://maps.apple.com/?q='+data.lat+','+data.lng
+        } ).addTo( markers )
+      } )
 
       map.addLayer( markers )
 
