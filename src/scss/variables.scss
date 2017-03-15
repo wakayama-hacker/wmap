@@ -1,37 +1,64 @@
+// ============================================================================
+// non-color-features
+// ============================================================================
+$horizontal-padding:    18px;
+$main-menu-height:      50px;
+$app-status-bar-height: 20px;
+
+// ============================================================================
+// color-features
+// ============================================================================
+
+// ------------------------------------
+// header
+// ------------------------------------
 // main-header
-$header-color-fg:           #ffffff;
-$header-color-bg:           rgb( 66, 70, 73 );
+$header-color-fg: #ffffff;
+$header-color-bg: rgb( 66, 70, 73 );
 
 // header-icons
-$header-icon-color-fg:      #555555;
-$header-icon-color-bg:      #ffffff;
+$header-icon-color-fg:       #ffffff;
+$header-icon-color-bg:       inherit;
+$header-icon-color-fg-hover: inherit;
+$header-icon-color-bg-hover: inherit;
 
+// ------------------------------------
 // menu
-$menu-color-shadow:         rgba( 0, 0, 0, 0.1 );
+// ------------------------------------
+// menu
+$menu-color-border: #bbbbbb;
+$menu-color-shadow: rgba( 0, 0, 0, 0.1 );
 
 // menu-item
-$menu-item-color-fg:        #555555;
-$menu-item-color-bg:        #f7f7f7;
+$menu-item-color-fg:       #555555;
+$menu-item-color-bg:       #f7f7f7;
+$menu-item-color-shadow:   rgba( 255, 255, 255, 0.7 );
 $menu-item-color-fg-hover: #ffffff;
 $menu-item-color-bg-hover: rgb( 85, 115, 187 );
-$menu-item-color-border:    #bbbbbb;
-$menu-item-color-shadow:    rgba( 255, 255, 255, 0.7 );
+
+// ------------------------------------
+// panel
+// ------------------------------------
+$panel-color-border: #bbbbbb;
 
 // main
-$main-color-bg:             #f7f7f7;
-$main-color-border:         #bbbbbb;
-$main-color-shadow:         rgba( 0, 0, 0, 0.5 );
+$main-color-fg:     #555555;
+$main-color-bg:     #f7f7f7;
+$main-color-shadow: rgba( 0, 0, 0, 0.5 );
 
 // main-item
-$main-item-color-fg:        #555555;
-$main-item-color-bg:        #ffffff;
-$main-item-color-border:    #cccccc;
-$main-item-color-shadow:    rgba( 0, 0, 0, 0.1 );
+$main-item-color-fg:     inherit;
+$main-item-color-bg:     #ffffff;
+$main-item-color-border: #cccccc;
+$main-item-color-shadow: rgba( 0, 0, 0, 0.1 );
 
 // main-item icons
-$main-item-icon-color-fg:   #cccccc;
+$main-item-icon-color-fg: #555555;
 
+// ------------------------------------
+// trivials
+// ------------------------------------
 // map
-$map-icon-color-fg:         #555555;
-$map-icon-color-bg:         #ffffff;
-$map-icon-color-shadow:     rgba( 0, 0, 0, 0.7 );
+$map-icon-color-fg:     #555555;
+$map-icon-color-bg:     #ffffff;
+$map-icon-color-shadow: rgba( 0, 0, 0, 0.7 );

@@ -1,0 +1,50 @@
+// ============================================================================
+// テーマ名: yellow
+// 特徴: 黄色を主体にしたWmapのカラーテーマです。
+// ============================================================================
+
+$primary:   #e1e141;
+$secondary: #e14141;
+// ------------------------------------
+// header
+// ------------------------------------
+// main-header
+$header-color-bg: darken( $primary, 40% );
+
+// header-icons
+$header-icon-color-fg: lighten( $primary, 40% );
+
+// ------------------------------------
+// menu
+// ------------------------------------
+// menu
+$menu-color-border: lighten( $primary, 30% );
+$menu-color-shadow: rgba( darken( $primary, 40% ), .2);
+
+// menu-item
+$menu-item-color-fg:       darken( $secondary, 40% );
+$menu-item-color-bg:       lighten( $primary, 40% );
+$menu-item-color-fg-hover: lighten( $secondary, 40% );
+$menu-item-color-bg-hover: darken( $primary, 25% );
+
+// ------------------------------------
+// panel
+// ------------------------------------
+$panel-color-border: lighten( $primary, 30% );
+
+// main
+$main-color-fg: darken( $secondary, 40% );
+$main-color-bg: lighten( $primary, 40% );
+
+// main-item
+$main-item-color-border: lighten( $primary, 20% );
+
+// main-item icons
+$main-item-icon-color-fg: darken( $primary, 40% );
+
+// ------------------------------------
+// trivials
+// ------------------------------------
+// map
+$map-icon-color-fg: darken( $secondary, 40% );
+$map-icon-color-bg: lighten( $primary, 40% );
