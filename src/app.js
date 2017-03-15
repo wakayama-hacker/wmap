@@ -134,13 +134,7 @@ router( 'map', function( div, id ) {
           zoom: config.map.zoom,
           lat: data.lat,
           lng: data.lng,
-          markers: [
-            {
-              titile: data.title,
-              lat: data.lat,
-              lng: data.lng
-            }
-          ]
+          markers: res.body
         } )
       } )
   }

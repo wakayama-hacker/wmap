@@ -16,21 +16,42 @@
         div.style.height = '100%'
       }
 
-      const lat = opts.lat
-      const lng = opts.lng
-
       if ( ! opts.zoom ) {
         opts.zoom = 14
       }
 
-      map.setView( new L.LatLng( lat, lng ), opts.zoom )
+      map.setView( new L.LatLng( opts.lat, opts.lng ), opts.zoom )
 
       const markers = new L.LayerGroup()
 
+      const redIcon = new L.Icon({
+        iconUrl: 'img/marker-icon-2x-red.png',
+        shadowUrl: 'img/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
       opts.markers.forEach( function( data ) {
-        L.marker( [ data.lat, data.lng ] ).on( 'click', function() {
-          location.href='http://maps.apple.com/?q='+data.lat+','+data.lng
-        } ).addTo( markers )
+        const div = document.createElement( 'div' )
+        const title = document.createElement( 'h3' )
+        const a = document.createElement( 'a' )
+        a.href = 'http://maps.apple.com/?q=' + escape( data.lat ) + ',' + escape( data.lng )
+        a.innerText = data.title
+        title.appendChild( a )
+        const content = document.createElement( 'div' )
+        content.innerHTML = data.content
+        div.appendChild( title )
+        div.appendChild( content )
+
+        if ( opts.lat === data.lat && opts.lng === data.lng ) {
+          L.marker( [ data.lat, data.lng ], { icon: redIcon } ).addTo( markers )
+            .bindPopup( div ).openPopup()
+        } else {
+          L.marker( [ data.lat, data.lng ] ).addTo( markers )
+            .bindPopup( div )
+        }
       } )
 
       map.addLayer( markers )
