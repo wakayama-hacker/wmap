@@ -2,7 +2,7 @@
 
 require( 'babel-polyfill' )
 
-global.config = require( './defaults.json' )
+global.config = require( '../json/config.json' )
 global.resizeTimer
 
 global.riot = require( 'riot' )

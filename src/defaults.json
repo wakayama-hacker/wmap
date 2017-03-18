@@ -1,7 +1,7 @@
 {
   "title": "Wmap",
   "description": "An open source mobile application framework which displays open data.",
-  "url": "https://wmap.wacker.io/",
+  "url": "https://wmap.wacker.io",
   "locale": "ja_JP",
   "endpoint": "json",
   "map": {
@@ -14,7 +14,7 @@
         "attribution_url": "http://osm.org/copyright"
       },
       {
-        "name": "空中写真",
+        "name": "Satellite",
         "tile": "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg",
         "attribution": "GSI Japan",
         "attribution_url": "http://maps.gsi.go.jp/development/ichiran.html"

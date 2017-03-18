@@ -16,8 +16,25 @@ const replace     = require( 'gulp-replace' )
 const rename      = require( 'gulp-rename' )
 const rimraf      = require( 'rimraf' )
 const babel       = require( 'gulp-babel' )
+const merge       = require( 'gulp-merge-json' )
 
-const config = require( './src/defaults.json' )
+// Note: `gulp config` should be executed before `gulp default`.
+gulp.task( 'config', () =>{
+  gulp.src( [
+    'src/defaults.json',
+    'config.json',
+  ] )
+  .pipe( merge( {
+    fileName: 'config.json',
+    edit: ( parsedJson ) => {
+      if ( parsedJson.someValue ) {
+        delete parsedJson.otherValue
+      }
+      return parsedJson
+    },
+  } ) )
+  .pipe( gulp.dest( './json' ) )
+} )
 
 gulp.task( 'md', () => {
   gulp.src( 'README.md' )
@@ -34,14 +51,15 @@ gulp.task( 'md', () => {
     .pipe( gulp.dest( 'tags' ) )
 } )
 
-gulp.task( 'html', () => {
+gulp.task( 'html', [ 'config' ], () => {
+  const config = require( './json/config.json' )
   gulp.src( './index.html.ejs' )
     .pipe( ejs( config ) )
     .pipe( rename( './index.html' ) )
     .pipe( gulp.dest( './' ) )
 } )
 
-gulp.task( 'js', [ 'md' ], function ( cb ) {
+gulp.task( 'js', [ 'md' ], ( cb ) => {
   browserify( {
     entries: [ 'src/app.js' ]
   } )
@@ -105,7 +123,7 @@ gulp.task( 'sass', () => {
     .pipe( gulp.dest( './css' ) )
 } )
 
-gulp.task( 'build', [
+gulp.task( 'default', [
   'html',
   'js',
   'data',

@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "http-server -io",
-    "build": "gulp build",
+    "build": "gulp config && gulp",
     "test": "npm run test:unit && karma start",
     "pretest": "npm run lint && npm run build",
     "lint": "eslint --ext .js,.tag .",
@@ -25,6 +25,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-ejs": "^3.0.0",
     "gulp-marked": "^1.0.0",
+    "gulp-merge-json": "^1.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^3.1.0",
