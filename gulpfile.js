@@ -36,8 +36,9 @@ gulp.task( 'config', () =>{
   .pipe( gulp.dest( './json' ) )
 } )
 
-gulp.task( 'md', () => {
-  gulp.src( 'README.md' )
+gulp.task( 'md', [ 'config' ], () => {
+  const config = require( './json/config.json' )
+  gulp.src( config.home )
     .pipe( marked( {} ) )
     // eslint-disable-next-line quotes
     .pipe( replace( /^/, '<home-contents class="home-contents">' + "\n" + '<div class="wrap">' ) )
