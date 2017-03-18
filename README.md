@@ -21,8 +21,8 @@
 Git と Node.js がインストール済みの環境であれば、以下のコマンドですぐに試すことができます。
 
 ```
-$ git clone git@github.com:wakayama-hacker/wnew.git
-$ cd wnew
+$ git clone git@github.com:wakayama-hacker/wmap.git
+$ cd wmap
 $ npm install
 $ npm run build
 $ npm start
@@ -48,16 +48,6 @@ menu,title,lat,lng,content
 ```
 
 データの編集が終わったら以下のコマンドでビルドしてください。
-
-```
-$ npm run build
-```
-
-## アプリ本体のカスタマイズ
-
-アプリを開いてすぐに表示されるトップページは、`README.md` に記述されている内容を元に自動的に生成されます。
-
-`README.md` を編集して、以下のコマンドを実行してください。
 
 ```
 $ npm run build
