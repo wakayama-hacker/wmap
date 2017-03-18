@@ -1,5 +1,7 @@
 'use strict'
 
+require( 'babel-polyfill' )
+
 global.config = require( './defaults.json' )
 global.resizeTimer
 
@@ -32,7 +34,7 @@ if ( window.navigator.standalone ) {
     document.querySelector( 'body' ).classList.add( 'web-app' )
   }
 
-  window.addEventListener( 'resize', function() {
+  window.addEventListener( 'resize', () => {
     if ( document.body.clientHeight < document.body.clientWidth ) {
       document.querySelector( 'body' ).classList.remove( 'web-app' )
     } else {
@@ -43,7 +45,7 @@ if ( window.navigator.standalone ) {
 
 riot.mount( menu_header )
 
-document.querySelector( '.toggle' ).addEventListener( 'click', function() {
+document.querySelector( '.toggle' ).addEventListener( 'click', () => {
   slideout.toggle()
 } )
 
@@ -57,7 +59,7 @@ request
     } )
   } )
 
-document.querySelector( '.back-to-home' ).addEventListener( 'click', function() {
+document.querySelector( '.back-to-home' ).addEventListener( 'click', () => {
   slideout.close()
   route( 'home' )
 }, false )
@@ -102,7 +104,7 @@ route( function( page, id ) {
 route.start( true )
 
 const router = function( page, callback ) {
-  document.addEventListener( 'router-' + page, function( e ) {
+  document.addEventListener( 'router-' + page, ( e ) => {
     const id = e.detail.id
     content_block.innerHTML = ''
     callback( id )
@@ -113,11 +115,11 @@ const mount = function( tag, opts ) {
   riot.mount( content_block, tag, opts )
 }
 
-router( 'home', function() {
+router( 'home', () => {
   mount( home_contents )
 } )
 
-router( 'data', function( id ) {
+router( 'data', ( id ) => {
   if ( id.match( /^[a-f0-9]{32}$/ ) ) {
     request
       .get( config.endpoint + '/' + id + '.json' )
@@ -141,7 +143,7 @@ router( 'data', function( id ) {
   }
 } )
 
-router( 'map', function( id ) {
+router( 'map', ( id ) => {
   if ( id.match( /^[a-f0-9]{32}\:[0-9]+$/ ) ) {
     const args = id.split( ':' )
     request

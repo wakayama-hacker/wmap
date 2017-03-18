@@ -15,6 +15,7 @@ const marked      = require( 'gulp-marked' )
 const replace     = require( 'gulp-replace' )
 const rename      = require( 'gulp-rename' )
 const rimraf      = require( 'rimraf' )
+const babel       = require( 'gulp-babel' )
 
 const config = require( './src/defaults.json' )
 
@@ -48,6 +49,9 @@ gulp.task( 'js', [ 'md' ], function ( cb ) {
   .bundle()
   .pipe( source( 'app.min.js' ) )
   .pipe( buffer() )
+  .pipe( babel( {
+    presets: [ 'es2015' ]
+  } ) )
   .pipe( uglify() )
   .pipe( gulp.dest( 'js' ) )
   .on( 'end', cb )
