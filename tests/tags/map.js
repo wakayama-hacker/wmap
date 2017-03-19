@@ -7,9 +7,14 @@ describe( 'map specs', function() {
       body.removeChild( body.firstChild )
     }
 
+    const fixed_header = document.createElement( 'div' )
+    fixed_header.classList.add( 'fixed-header' )
+
     const html = document.createElement( 'map' )
     document.body.style.width = '100%'
     document.body.style.height = '300px'
+
+    body.appendChild( fixed_header )
     body.appendChild( html )
   } )
 
