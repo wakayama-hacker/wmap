@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Wmap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="apple-touch-icon" href="./img/icon.png" />
+    <link rel="icon" href="./img/icon.png">
+    <meta name="msapplication-TileImage" content="./img/icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wmap" />
+    <meta property="og:description" content="An open source mobile application framework which displays open data." />
+    <meta property="og:url" content="https://wmap.wacker.io/" />
+    <meta property="og:site_name" content="Wmap" />
+    <meta property="og:image" content="https://wmap.wacker.io/img/ogp.png" />
+    <meta property="og:locale" content="ja_JP" />
+  </head>
+  <body>
+    <header class="fixed-header">
+      <div class="wrap">
+        <div class="home-icon back-to-home"><i class="glyphicon glyphicon-home"></i></div>
+        <div><i class="glyphicon glyphicon-menu-hamburger toggle"></i></div>
+      </div>
+    </header>
+
+    <nav id="menu">
+      <menu-header class="header"></menu-header>
+      <menu-item class="menu-item"></menu-item>
+    </nav>
+
+    <main id="panel"></main>
+
+    <script src="js/app.min.js"></script>
+  </body>
+</html>
