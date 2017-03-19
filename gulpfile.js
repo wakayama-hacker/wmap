@@ -80,7 +80,7 @@ gulp.task( 'clean', cb => {
   rimraf( './json', cb )
 } )
 
-gulp.task( 'data', [ 'clean' ], () => {
+gulp.task( 'data', () => {
 
   // merge streams of csv and xlsx
   streamqueue(
