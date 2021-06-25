@@ -52,6 +52,11 @@ img
     color: $header-icon-color-fg;
     margin: 0;
     padding: 0;
+
+    .glyphicon
+    {
+      left: -1px;
+    }
   }
 }
 
